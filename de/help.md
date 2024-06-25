@@ -8,29 +8,41 @@ header: Häufig gestellte Fragen
 
 ## Was ist Delta Chat?
 
-Delta Chat ist eine neue Chat-App, die mit Autocrypt verschlüsselte E-Mails versendet. 
-**Sie müssen sich nirgendwo anmelden, verwenden Sie einfach Ihr bestehendes E-Mail-Konto mit Delta Chat.**
+Delta Chat ist eine zuverlässige, dezentralisierte und sichere Messaging-App, verfügbar für Mobile- und Desktop-Plattformen.
+
+Delta Chat sieht wie Whatsapp oder Telegram aus, aber kann auch als E-Mail-App verwendet und betracht werden. 
+Sie können sich anonym bei einer Vielzahl von [interoperablen Chatmail-Servern](https://delta.chat/chatmail) anmelden, bei denen es sich um minimale E-Mail-Server handelt, die für einen schnellen und sicheren Betrieb optimiert sind. 
+Oder Sie verwenden einen klassische E-Mail-Server und ein bestehendes E-Mail-Konto.
+In diesem Fall fungiert Delta Chat als E-Mail-App. 
 
 <img style="float:right; width:50%; max-width:360%; margin:1em;" src="../assets/home/delta-what-optim.png" />
 
 
 ### Wie finde ich Leute, mit denen ich chatten kann? 
 
-Mit Delta Chat können Sie an jede existierende E-Mail-Adresse schreiben. Im Gegensatz
-zu anderen Instant-Messengern muss der/die EmpfängerIn nicht Delta Chat installieren, um mit Ihnen zu kommunizieren. Er/sie kann einfach sein/ihr gewohntes Mailprogramm nutzen. 
+Zur sicheren Kontaktaufnahme mit anderen [scannen Sie einen Einladungs-QR-Code 
+oder teilen Sie einen Einladungslink](#howtoe2ee). 
+Dies ist erforderlich, wenn Sie ein Chatmail-basiertes Profil verwenden, weil Chatmail-Server unverschlüsselte ausgehende Nachrichten ablehnen.
+
+Wenn Sie ein Profil mit einer klassischen E-Mail-Adresse verwenden, können Sie manuell Kontakte über bekannte E-Mail-Adresse hinzufügen und anschreiben -
+auch wenn der Empfänger Delta Chat nicht benutzt.
 
 
 ### Welche Vorteile hat Delta Chat gegenüber anderen Messengern?
 
-- Delta Chat ist _unabhängig_ von Unternehmen oder Dienstleistern. Ihre Daten gehören nur _Ihnen_
-- Ihre Daten werden nicht auf einem zentralen Server gespeichert wenn Benutzer verschiedene E-Mail-Server verwenden
-- Ihr Adressbuch wird nicht an Dritte übermittelt.
-- _Schnell_ durch die Verwendung von Push-IMAP.
-- _Größte Nutzerbasis_ - EmpfängerInnen, die Delta Chat _nicht_ nutzen, können ebenfalls erreicht werden.
-- _Kein Spam_ - standardmäßig werden nur Nachrichten bekannter Kontakte angezeigt.
-- _Ende-zu-Ende-Verschlüsselung_ mit Autocrypt.
--  Auf _Copyleft_ und _Standards_ basierende freie Software.
-- _Flexible Identität_ mit eingebauter Unterstützung für [mehrere Konten](#multiple-accounts)
+- Anonyme Chat-Profile mit schnellen, sicheren und interoperablen [Chatmail-Servern](https://delta.chat/chatmail),
+die sofortige Push-Benachrichtigungen für iOS- und Android-Geräte bieten. 
+
+- Durchgängige [Multi-Profil](#multiple-accounts) und Multi-Geräte-Unterstützung auf allen Plattformen. 
+
+- Interaktive [Webanwendungen in Chats](https://webxdc.org/apps) für Spiele und für die Zusammenarbeit
+
+- [Geprüfte Ende-zu-Ende-Verschlüsselung](#security-audits), 
+sicher gegen Netzwerk- und Serverangriffe. 
+
+- Freie und quelloffene Software, sowohl app- als auch serverseitig. 
+Basiert auf [E-Mail- und Web-Internet-Standards](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md), 
+um das [„Noch-ein-Standard-Syndrom“ (xkcd 927)](https://xkcd.com/927/) zu vermeiden.
 
 
 ### Was ist, wenn ich eine Nachricht von jemandem erwarte, dem ich in der Vergangenheit nicht geschrieben habe?
@@ -46,12 +58,24 @@ zu anderen Instant-Messengern muss der/die EmpfängerIn nicht Delta Chat install
 
 - Um die Leistung zu verbessern, werden die Bilder standardmäßig optimiert und in einer kleineren Größe gesendet, aber Sie können sie auch als "Datei" senden, um das Original zu erhalten.
 
-<h3 id="multiple-accounts">Wie kann ich mehrere Konten hinzufügen oder zwischen ihnen wechseln?</h3>
 
-Tippen Sie auf das Profilbild in der oberen linken Ecke, um **E-Mail-Konten zu wechseln**.
-Dort finden Sie auch **Konto hinzufügen**.
+### Was sind Profile? Wie kann ich zwischen ihnen wechseln? {#multiple-accounts}
 
-Vielleicht möchten Sie auch erfahren, wie Sie [E-Mail-Konten zu mehreren Geräten hinzufügen können](#multiclient).
+Ein Profil besteht aus **einem Namen, einem Bild** und einigen zusätzlichen Informationen zum Verschlüsseln von Nachrichten.
+Ein Profil existiert nur auf Ihren Geräten
+und verwendet einen Chatmail- oder einen klassischen E-Mail-Server für den Transport von Nachrichten.
+
+Bei der Installation von Delta Chat wird ein erstes Profil erstellt.
+
+Später können Sie auf Ihr Profilbild in der oberen linken Ecke tippen, um **Profile hinzuzufügen**
+oder **Profile zu wechseln**.
+
+Vielleicht möchten Sie separate Profile für politische, familiäre oder berufliche Aktivitäten verwenden,
+oder z. B. für ein spezielles „Spam-Profil“, mit dem Sie sich bei Websites und Plattformen anmelden
+die dazu neigen, früher oder später unerwünschte Nachrichten („Spam“) zu versenden.
+
+Vielleicht möchten Sie auch erfahren, wie Sie [Profile auf mehreren Geräten verwenden können](#multiclient).
+
 
 ### Wer sieht mein Profilbild?
 
@@ -184,6 +208,113 @@ Wenn Sie der Gruppe später erneut beitreten möchten, bitten Sie ein anderes Gr
 - Um es zu aktivieren, gehen Sie in den "Chats und Medien"-Einstellungen zu "Alte Nachrichten vom Gerät löschen". Sie können einen Zeitraum zwischen "nach 1 Stunde" und "nach 1 Jahr" festlegen; auf diese Weise werden *alle* Nachrichten von Ihrem Gerät gelöscht, sobald sie älter als angegeben sind.
 
 
+## Sofortige Nachrichtenzustellung und Push-Benachrichtigungen {#instant-delivery}
+
+
+### Was sind Push-Benachrichtigungen? Wie kann ich Nachrichten sofort erhalten?
+
+Push-Benachrichtigungen werden von Apples und Googles „Push-Diensten“ an das Gerät des Benutzers gesendet,
+so dass eine inaktive Delta-Chat-App im Hintergrund Nachrichten erhalten
+und Benachrichtigungen auf dem Telefon des Nutzers anzeigen kann.
+
+Push-Benachrichtigungen funktionieren mit allen [Chatmail](https://delta.chat/chatmail)-Servern auf
+
+- iOS-Geräten, durch die Integration mit den Apple-Push-Diensten.
+
+- Android-Geräten, durch die Integration des Google FCM Push-Dienste,
+auch auf Geräten, die [microG](https://microg.org)
+anstelle von proprietärem Google-Code auf dem Telefon.
+
+Stand Mai 2024 unterstützen die klassischen E-Mail-Server keine Push-Benachrichtigungen für Delta-Chat-Benutzer.
+
+
+### Sind Push-Benachrichtigungen auf iOS-Geräten aktiviert? Gibt es Alternativen?
+
+Ja, Delta Chat verwendet automatisch Push-Benachrichtigungen für [Chatmail](https://delta.chat/chatmail)-Profile.
+Und nein, es gibt für Apple-Telefonen keine Alternative, Push-Benachrichten zuzustellen;
+Apple-Geräte erlauben es Delta Chat nicht, Daten im Hintergrund abzurufen.
+Push-Benachrichtigungen werden für iOS-Nutzer automatisch aktiviert, da
+[Delta Chats datenschutzwahrendes Push-Benachrichtigungssystem](#privacy-notifications)
+keine Daten an Apple weitergibt, die Apple nicht bereits hat.
+
+
+### Sind Push-Benachrichtigungen auf Android-Geräten aktiviert/erforderlich? {#android-push}
+
+Wenn ein „Push-Service“ verfügbar ist, aktiviert Delta Chat Push-Benachrichtigungen
+um eine sofortige Nachrichtenzustellung für alle Chatmail-Benutzer zu erreichen.
+Wenn Sie einen klassischen E-Mail-Anbieter anstelle von [chatmail](https://delta.chat/chatmail) Servern verwenden,
+sind Push-Benachrichtigungen nicht verfügbar.
+
+In den Delta-Chat-Einstellungen „Benachrichtigungen“ für „Sofortige Benachrichtigungen“
+können Sie die folgenden Einstellungen ändern, die alle Chat-Profile betreffen:
+
+- Push-Dienst verwenden: die Standardeinstellung bei Verwendung von Chatmail-Profilen und wenn
+ein Push-Service auf dem Telefon verfügbar ist.
+Wenn Sie sowohl Chatmail- als auch klassische E-Mail-Profile haben,
+dann funktioniert die Push-Benachrichtigung nur
+für eingehende Nachrichten auf Chatmail-Profilen.
+
+- Hintergrundverbindung verwenden: Wenn Sie keinen Push-Dienst verwenden, können Sie die „Batterie-Optimierung“ für Delta Chat deaktivieren, damit Nachrichten im Hintergrund abgerufen werden können. Dabei kann es jedoch zu Verzögerungen von Minuten bis Stunden kommen.
+Einige Android-Hersteller schränken Apps sogar vollständig ein
+(siehe [dontkillmyapp.com](https://dontkillmyapp.com))
+und Delta Chat zeigt möglicherweise keine eingehenden Nachrichten anbis Sie die App erneut manuell öffnen.
+  
+- Hintergrundverbindung erzwingen: Dies ist die Ausweichoption wenn die vorherigen Optionen nicht verfügbar sind oder keine „sofortige Zustellung“ erreichen. Die Aktivierung dieser Option führt zu einer permanenten Benachrichtigung auf Ihrem Telefon, die bei neueren Android-Telefonen manchmal „verkleinert“ werden kann.
+
+Beide „Hintergrundverbindung“-Optionen sind energiesparend und
+können sicher ausprobiert werden, wenn Sie feststellen, dass Nachrichten nur mit großer Verzögerung ankommen.
+
+
+### Wie privat sind Delta Chat Push-Benachrichtigungen? {#privacy-notifications}
+
+Delta Chats Vorgehensweise, Push-Benachrichtigungen zu verwenden, vermeidet die Weitergabe privater Informationen.
+Es werden keine E-Mail- oder IP-Adressen oder Nachrichteninhalte (auch nicht verschlüsselt)
+an irgendein System, das an der Zustellung von Push-Benachrichtigungen beteiligt ist, weitergegeben.
+
+So verwendet Delta Chat Push-Benachrichtigungen:
+
+- Eine Delta-Chat-Anwendung erhält lokal ein „Geräte-Token“ (eine zufällige Zahl) und speichert es
+auf dem [Chatmail](https://delta.chat/chatmail)-Server.
+
+- Wenn ein [Chatmail](https://delta.chat/chatmail)-Server eine E-Mail für einen Delta Chat-Benutzer erhält
+erhält, leitet er den „Geräte-Token“ an den zentralen Delta-Chat-Benachrichtigungs-Proxy weiter.
+
+- Der zentrale Delta-Chat-Benachrichtigungs-Proxy leitet
+das „Geräte-Token“ an den jeweiligen Push-Dienst (Apple, Google, etc.) weiter,
+ohne jemals die IP- oder E-Mail-Adresse des Delta-Chat-Benutzers zu kennen.
+
+- Der zentrale Push-Dienst (Apple, Google, etc.)
+weckt die Delta-Chat-App auf Ihrem Gerät auf
+um im Hintergrund nach neuen Nachrichten zu suchen.
+Der zentrale Push-Dienst weiß nichts über die Chatmail- oder E-Mail-Adresse des Geräts, das er aufweckt und sieht nie eine E-Mail-Adresse (Absender oder Empfänger)
+und auch nie den Inhalt einer Nachricht (auch nicht in verschlüsselter Form).
+
+Stand Mai 2024 kennen die Chatmail-Server die Geräte-Token,
+aber wir planen, diese Informationen an den Benachrichtigungs-Proxy zu verschlüsseln
+zu verschlüsseln, so dass der Chatmail-Server niemals das „Geräte-Token“ erfährt.
+
+Der zentrale Delta-Chat-Benachrichtigungs-Proxy [ist klein und vollständig in Rust implementiert](https://github.com/deltachat/notifiers)
+und vergisst die Geräte-Token, sobald Apple/Google/etc. sie verarbeitet hat,
+normalerweise innerhalb weniger Millisekunden.
+
+Aufgrund dieses umfassenden Datenschutzkonzepts würde sogar die Beschlagnahmung eines Chatmail-Servers,
+oder die vollständige Beschlagnahmung des zentralen Delta-Chat-Benachrichtigungsproxys
+keine privaten Informationen preisgeben, die den zentralen Push-Diensten nicht bereits vorliegen.
+
+
+### Warum integriert sich Delta Chat in zentralisierte, proprietäre Apple/Google-Push-Dienste?
+
+Delta Chat ist ein freier, quelloffener, dezentraler Messenger mit freier Serverwahl,
+aber wir wollen, dass die Nutzer eine zuverlässige „Sofortzustellung“ von Nachrichten haben,
+wie sie es von Whatsapp, Signal oder Telegram kennen,
+ohne im Vorfeld Fragen zu stellen, die eher für erfahrene Nutzer oder Entwickler geeignet sind.
+
+Beachten Sie, dass Delta Chat ein [kleines, die Privatsphäre wahrendes Push-Benachrichtigungssystem](#privacy-notifications)
+hat, das eine „sofortige Zustellung“ von Nachrichten für alle Chatmail-Server erreicht.
+Einschließlich dem Chatmail-Server, [den Sie selbst ohne unsere Erlaubnis einrichten könnten](https://delta.chat/chatmail#selfhosted).
+Willkommen bei der Macht des interoperablen und massiven Chatmail- und E-Mail-Systems :)
+
+
 ## Verschlüsselung und Sicherheit
 
 ### Welche Standards werden für die Ende-zu-Ende-Verschlüsselung verwendet?
@@ -213,40 +344,25 @@ Die Ende-zu-Ende-Verschlüsselung ist garantiert, wenn neben dem Chat-Titel ein 
 
 ### Wie kann ich garantierte Ende-zu-Ende-Verschlüsselung und grüne Häkchen erhalten? {#howtoe2ee}
 
-Treffen Sie Ihren Chat-Partner außerhalb von Delta Chat, vorzugsweise persönlich.
-Ein zweiter Kanal wie ein Video-Chat
-oder ein anderer Messenger ist aber auch in Ordnung.
-Führen Sie das folgende QR-Code-Verfahren mit Ihrem Chat-Partner durch.
-Einer von Ihnen ist der "Einlader", die andere ist der "Beitretende".
+Wenn Sie einen zweiten Kommunikationskanal mit Ihrem Chatpartner haben,
+wie einen Video-Chat oder einen anderen Messenger,
+können Sie einen Einladungslink erstellen.
 
-**Auf der Seite des Einladers**:
+Wenn Sie persönlich zusammen sind,
+können Sie Ihrem Chat-Partner einen QR-Code zeigen.
 
-- Gruppeneinladung: 
-Tippen Sie auf den Titel der Chat-Gruppe, um die Mitgliederliste anzuzeigen, und wählen Sie "QR-Einladungscode". 
-Zeigen Sie das QR-Bild der anderen Seite entweder persönlich oder über einen zweiten Kanal.
+- Für **Gruppeneinladungen**,
+tippen Sie auf den Titel der Gruppe, um die Mitgliederliste anzuzeigen,
+und wählen Sie „QR-Einladungscode“.
 
-- Direktchat-Einladung: 
-Tippen Sie auf das QR-Code-Symbol <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
-auf dem Hauptbildschirm der Delta Chat-App.
-Zeigen Sie das QR-Bild der anderen Seite entweder persönlich oder über einen zweiten Kanal.
+- Für **Direktchat-Einladungen**,
+tippen Sie auf das QR-Code-Symbol <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
+auf dem Hauptbildschirm der Delta-Chat-App.
 
-**Auf der Seite des Beitretenden**:
+Lassen Sie Ihren Chat-Partner den QR-Code mit der Delta-Chat-App scannen.
+Oder Sie klicken auf „Kopieren“ oder „Teilen“, um einen Einladungslink zu erstellen und diesen mit Ihrem Chat-Partner zu teilen.
 
-- Tippen Sie auf das QR-Code-Symbol <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
-auf dem Hauptbildschirm der Delta Chat-App.
-
-- Wählen Sie "QR-CODE SCANNEN" und scannen Sie den QR-Code 
-den Sie von Ihrem Chat-Partner in einem zweiten Kanal sehen oder erhalten haben.
-
-- "OK" tippen
-
-Wenn QR-Code-Scannen in Ihrer Situation nicht funktioniert,
-können Sie auch einen Einladungslink **Teilen** (oder **In die Zwischenablage kopieren**)
-und über einen zweiten Kanal an die andere Person weiterleiten.
-
-**Beide, Einlader und Beitretender**:
-
-Warten Sie, während das [Secure-Join-Protokoll](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) zwischen den Geräten abläuft.
+Warten Sie nun, während das [Secure-Join-Protokoll](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) zwischen beiden Geräten abläuft.
 
 - Wenn beide Geräte online sind,
 sehen beide Seiten schließlich einen Gruppen- oder Direkt-Chat mit einem grünen Häkchen
@@ -316,8 +432,8 @@ und die Verschlüsselung ist mit beiden Geräten Ihres Kontakts garantiert.
 **Ihr Kontakt hat Delta Chat mit seinem alten Login neu installiert**
  
 Wenn Ihr Kontakt [ein Backup](#backup) hat, 
-sollten das Konto auf dem neuen Gerät 
-entfernen werden und stattdessen das Backup importieren werden, um das Konto neu zu erstellen. 
+sollte das Profil auf dem neuen Gerät 
+entfernt werden und stattdessen das Backup importiert werden, um das Konto neu zu erstellen. 
 Sobald sie sich danach schreiben, wird die Warnung verschwinden
 und die garantierte Verschlüsselung wird für diesen Kontakt wiederhergestellt.
 
@@ -606,7 +722,7 @@ Es wurden keine kritischen Probleme gefunden, aber zwei Probleme mit hohem Schwe
 
 ### Kann ich Delta Chat auf mehreren Geräten zur selben Zeit verwenden?
 
-Ja. Delta Chat 1.36 comes with a new, experimental function for using the same account on different devices:
+Ja. Delta Chat 1.36 comes with a new, experimental function for using the same profile on different devices:
 
 - Stellen Sie sicher, dass sich beide Geräte im selben Wi-Fi oder Netzwerk befinden
 
@@ -638,7 +754,7 @@ Verwenden Sie nach Möglichkeit ein Nicht-Gast-Netzwerk. Wenn Sie Zugriff auf de
 
 - Wenn die Übertragung begonnen hat, stellen Sie sicher, dass die Geräte **aktiv bleiben** und nicht ausgehen. Beenden Sie Delta Chat nicht. (wir bemühen uns, die App im Hintergrund laufen zu lassen, aber [Systeme neigen dazu, Apps zu beenden](https://dontkillmyapp.com), leider)
 
-- Sie sind auf dem Zielgerät **bereits eingeloggt**? Sie können mehrere Konten pro Gerät verwenden, fügen Sie einfach [ein weiteres Konto hinzu](#multiple-accounts)
+- Sie sind auf dem Zielgerät **bereits eingeloggt**? Sie können mehrere Profile pro Gerät verwenden, fügen Sie einfach [ein weiteres Konto hinzu](#multiple-accounts)
 
 - Wenn Sie immer noch Probleme haben oder wenn Sie **keinen QR-Code scannen können** versuchen Sie die **manuelle Übertragung** wie unten beschrieben
 
@@ -718,7 +834,7 @@ Wir sind sehr dankbar für Feedback zu diesen Funktionen - möchten Sie Ihre Ide
 - Wenn Sie nun Ihren Standort in einem Chat teilen möchten, gehen Sie zu "Anhängen" und wählen Sie "Standort". Sie können nun einen Zeitraum zwischen 5 Minuten und 6 Stunden festlegen, in dem Ihr Standort an Ihre Chat-Partner gestreamt wird.
 - Wenn sich Ihr Standort ändert, können die anderen im Chat ihn auf einer Karte im Chat sehen.
 - Um die Karte und die Standorte anderer anzuzeigen, müssen Sie die Funktion in den erweiterten Einstellungen aktivieren.
-- Diese Funktion teilt Ihren Standort mit niemandem außer Ihren Chat-Partnern. *Aber:* Um die Karte anzuzeigen, müssen wir Kartenkacheln von mapbox.com herunterladen. Wenn Sie also die Karte *ansehen*, wird mapbox.com nach der Karte eines bestimmten Gebiets gefragt. Wenn dies ein Datenschutzrisiko für Sie darstellt, ist diese Funktion möglicherweise nicht für Sie geeignet. Wir arbeiten daran, eine dezentrale Alternative für Mapbox zu finden.
+- Diese Funktion teilt Ihren Standort mit niemandem außer Ihren Chat-Partnern. Kartendaten werden von  [OpenStreetMap](https://openstreetmap.org) heruntergeladen.
 - Auf dem Desktop kann das Betriebssystem Ihren Standort normalerweise nicht bestimmen. Stattdessen können Sie mit der rechten Maustaste auf die Karte klicken und einen Ort beschreiben, der als Nachricht an den Chat gesendet wird, aber auch auf der Karte erscheint.
 
 
@@ -742,7 +858,7 @@ Die Aktivierung von "Nur aus DeltaChat-Ordner lesen" ist sinnvoll, wenn Sie **be
 In diesem Fall muss Delta Chat den Posteingang nicht beobachten, und es reicht aus, nur den DeltaChat-Ordner zu beobachten.
 
 
-### Wie kann ich mein Konto auf eine andere E-Mail-Adresse ändern?
+### Wie kann ich mein Profil auf eine andere E-Mail-Adresse ändern?
 
 1. Ändern Sie Ihre E-Mail-Adresse unter "Einstellungen → Erweitert → Passwort und E-Mail-Konto" und
 geben Sie das Passwort Ihres neuen E-Mail-Konto (und ggf. die Servereinstellungen) ein.
@@ -812,14 +928,6 @@ Genau wie auch bei anderen E-Mail-Programmen (z. B. Thunderbird, K9-Mail oder Ou
 Wenn Sie einen E-Mail-Anbieter wie gmail.com oder yandex.ru nutzen, der OAuth2 unterstützt, wird Ihr Passwort nicht auf Ihrem Gerät gespeichert. In diesem Fall wird nur ein Zugriffstoken genutzt.
 
 Da Delta Chat Open Source ist, können Sie den [Quellcode](https://github.com/deltachat/deltachat-core-rust/blob/master/src/login_param.rs) einsehen und sich davon überzeugen, dass Ihre Zugangsdaten sicher gehandhabt werden. Wir freuen uns über Feedback, das unsere App sicherer für all unsere NutzerInnen macht.
-
-
-### Delta Chat verwendet E-Mail - ist es dann wirklich ein _Instant_ Messenger?
-
-- Typischerweise benötigt das Senden und Empfangen von Nachrichten nur wenige Sekunden. Es gibt Fälle, in denen es länger dauert, aber das trifft auch auf andere Messenger zu.
-- Das Chatten geht schnell, wenn beide Seiten die App aktiv verwenden. Wenn die App im Hintergrund läuft, kann es zu Verzögerungen kommen.
-- Das Empfangen von Nachrichten im Hintergrund kann deshalb manchmal Minuten dauern, weil Android und iOS Delta Chat daran hindert, im Hintergrund zu laufen, und die App so nur gelegentlich aktiv ist. Diese künstliche Verzögerung ist eher unter iOS zu spüren als unter Android.
-- Dass Android und iOS Apps, die im Hintergrund laufen, beenden, ist allerdings ein Problem, das viele legitime Apps haben. Für weitere Informationen siehe [dontkillmyapp.com](https://dontkillmyapp.com/).
 
 
 ### Welche Nachrichten erscheinen in Delta Chat?

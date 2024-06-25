@@ -8,33 +8,46 @@ header: Veelgestelde vragen
 
 ## Wat is Delta Chat?
 
-Delta Chat is een nieuw soort gespreksapp waarmee je chat via e-mail, indien mogelijk extra versleuteld middels Autocrypt.
-**Je hoeft je nergens te registreren - je kunt gewoon je bestaande e-mailaccount gebruiken.**
+Delta Chat is a reliable, decentralized and secure messaging app, 
+available for mobile and desktop platforms.
+
+Delta Chat feels like Whatsapp or Telegram but you can also use and regard it as an e-mail app. 
+You can signup anonymously to a variety of [interoperable chatmail servers](https://delta.chat/chatmail)
+which are minimal e-mail servers optimized for fast and secure operations. 
+Or you may use classic e-mail servers and an existing e-mail account
+in which case Delta Chat acts as an e-mail app. 
 
 <img style="float:right; width:50%; max-width:360%; margin:1em;" src="../assets/home/delta-what-optim.png" />
 
 
 ### Hoe kan ik gesprekspartners vinden?
 
-Met Delta Chat kun je berichten schrijven naar elk bestaand e-mailadres, zelfs
-als de ontvanger (nog) geen gebruik maakt van de Delta Chat-app. De ontvanger hoeft dus niet
-per se dezelfde app te gebruiken als jij zoals bij andere chatapps.
+To securely setup contact with others [scan an invite QR code 
+or share an invite link](#howtoe2ee). 
+This is required when using a (default) chatmail-based chat profile 
+because chatmail servers reject un-encrypted outgoing messages.
+
+If you create a chat profile with a classic e-mail address 
+you may manually create a contact if you know their e-mail address
+and then write a message to them 
+even if the recipient is not using Delta Chat.
 
 
 ### Wat zijn de voordelen van Delta Chat t.o.v. andere gespreksapps?
 
-- _Onafhankelijk_: niet verbonden aan een bedrijf of bepaalde diensten. _Jij_ beschikt over jóuw gegevens.
-- Je gegevens worden niet opgeslagen op een centrale server. Op deze manier beschermt Delta Chat zélfs je metagegevens (wie verstuurt iets aan wie?).
-- Je deelt je adresboek met niets of niemand.
-- _Snel_, dankzij het gebruik van Push-IMAP.
-- _Grootst aantal gebruikers_: ontvangers hoeven Delta Chat _niet_ te gebruiken.
-- _Compatibel_, en niet alleen met zichzelf.
-- _Elegant_, en _eenvoudig_ te gebruiken.
-- _Verspreid_ systeem.
-- _Geen ongewenste berichten_: standaard worden alleen berichten van bekenden getoond.
-- _Eind-tot-eindversleuteling_ met behulp van Autocrypt.
-- Volledig _open source_ en gebaseerd op _standaarden_.
-- _Flexibel: ingebouwde ondersteuning voor [meerdere accounts](#multiple-accounts).
+- Anonymous chat profiles with fast, secure and interoperable [chatmail servers](https://delta.chat/chatmail)
+  which offer instant Push Notifications for iOS and Android devices. 
+
+- Pervasive [multi-profile](#multiple-accounts) and multi-device support on all platforms. 
+
+- Interactive [web apps in chats](https://webxdc.org/apps) for gaming and collaboration
+
+- [Audited end-to-end encryption](#security-audits) 
+  safe against network and server attacks. 
+
+- Free and Open Source software, both app and server side. 
+  Built on [E-mail and Web Internet Standards](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md), 
+  [to avoid "yet another standard syndrome (xkcd 927)"](https://xkcd.com/927/) 
 
 
 ### Wat nu als ik een bericht verwacht van iemand die ik nog niet heb aangeschreven?
@@ -54,12 +67,24 @@ per se dezelfde app te gebruiken als jij zoals bij andere chatapps.
 
 - Om de prestaties te verhogen, worden afbeeldingen standaard geoptimaliseerd en verkleind verstuurd, maar je kunt ze als een bestand verzenden om het origineel te sturen.
 
-<h3 id="multiple-accounts">Hoe kan ik wisselen van account?</h3>
 
-Tap the profile image in the upper left corner to **switch accounts**.
-You will also find **Add Account** there.
+### What are profiles? How can I switch between them? {#multiple-accounts}
 
-Lees ook [hoe je accounts aan meerdere apparaten toevoegt](#multiclient).
+A profile is **a name, a picture** and some additional information for encrypting messages.
+A profile lives on your device(s) only
+and uses a chatmail or a classic e-mail server to transport messages.
+
+On first installation of Delta Chat a first profile is created.
+
+Later, you can tap your profile image in the upper left corner to **Add Profiles**
+or to **Switch Profiles**.
+
+You may want to use separate profiles for political, family or work related activities,
+or e. g. for a dedicated "spam-profile" with which you register at websites and platforms
+that tend to cause unsolicited messages ("spam") sooner or later.
+
+You may also wish to learn [how to use the same profile on multiple devices](#multiclient).
+
 
 ### Wie kan mijn profielfoto zien?
 
@@ -217,6 +242,122 @@ afhankelijk van hoe vaak je het andere apparaat gebruikt.
   ‘na één uur’ en ‘na één jaar’ kiezen. *Alle berichten die ouder zijn, worden verwijderd.
 
 
+## Instant message delivery and Push Notifications {#instant-delivery}
+
+
+### What are Push Notifications? How can I get instant message delivery?
+
+Push Notifications are sent by Apple and Google "Push services" to a user's device
+so that an inactive Delta Chat app can fetch messages in the background
+and show notifications on a user's phone if needed.
+
+Push Notifications work with all [chatmail](https://delta.chat/chatmail) servers on
+
+- iOS devices, by integrating with Apple Push services.
+
+- Android devices, by integrating with the Google FCM Push service,
+  including on devices that use [microG](https://microg.org)
+  instead of proprietary Google code on the phone.
+
+As of May 2024, classic e-mail servers do not support Push Notifications
+for Delta Chat users.
+
+
+### Are Push Notifications enabled on iOS devices? Is there an alternative?
+
+Yes, Delta Chat automatically uses Push Notifications for [chatmail](https://delta.chat/chatmail) profiles.
+And no, there is no alternative on Apple's phones to achieve instant message delivery
+because Apple devices do not allow Delta Chat to fetch data in the background.
+Push notifications are automatically activated for iOS users because
+[Delta Chat's privacy-preserving Push Notification system](#privacy-notifications)
+does not expose data to Apple that it doesn't already have.
+
+
+### Are Push notifications enabled / needed on Android devices? {#android-push}
+
+If a "Push Service" is available, Delta Chat enables Push Notifications
+to achieve instant message delivery for all chatmail users.
+If you are using a classic e-mail provider instead of [chatmail](https://delta.chat/chatmail) servers,
+Push Notifications are not available.
+
+In the Delta Chat "Notifications" settings for "Instant delivery"
+you can change the following settings effecting all chat profiles:
+
+- Use Push Service: the default when using chatmail profiles and if
+  a Push service is available on the phone.
+  If you have both chatmail and classic e-mail profiles,
+  then Push Notification will only work
+  for incoming messages on chatmail profiles.
+
+- Use Background Connection: If you are not using a Push service,
+  you may disable "battery optimizations" for Delta Chat,
+  allowing it to fetch messages in the background.
+  However, there could be delays from minutes to hours.
+  Some Android vendors even restrict apps completely
+  (see [dontkillmyapp.com](https://dontkillmyapp.com))
+  and Delta Chat might not show  incoming messages
+  until you manually open the app again.
+  
+- Force Background Connection: This is the fallback option
+  if the previous options are not available or do not achieve "instant delivery".
+  Enabling it causes a permanent notification on your phone
+  which may sometimes be "minified" with recent Android phones.
+
+Both "Background Connection" options are energy-efficient and
+safe to try if you experience messages arrive only with long delays.
+
+
+### How private are Delta Chat Push Notifications? {#privacy-notifications}
+
+Delta Chat Push Notification support avoids leakage of private information.
+It does not leak e-mail, IP address or message content (not even encrypted)
+to any system involved in the delivery of Push Notifications.
+
+Here is how Delta Chat apps perform Push Notification delivery:
+
+- A Delta Chat app obtains a "device token" locally and stores it
+  on the [chatmail](https://delta.chat/chatmail) server.
+
+- When a [chatmail](https://delta.chat/chatmail) server receives an e-mail for a Delta Chat user
+  it forwards the "device token" to the central Delta Chat notification proxy.
+
+- The central Delta Chat notification proxy forwards
+  the "device token" to the respective Push service (Apple, Google, etc.),
+  without ever knowing the IP or e-mail address of Delta Chat users.
+
+- The central Push Service (Apple, Google, etc.)
+  wakes up the Delta Chat app on your device
+  to check for new messages in the background.
+  It does not know about the chatmail or e-mail address of the device it wakes up.
+  The central Apple/Google Push services never see an e-mail address (sender or receiver)
+  and also never see any message content (also not in encrypted forms).
+
+As of May 2024, chatmail servers know about "device tokens"
+but we plan to encrypt this information to the notification proxy
+such that the chatmail server never learns the device token.
+
+The central Delta Chat notification proxy [is small and fully implemented in Rust](https://github.com/deltachat/notifiers)
+and forgets about device-tokens as soon as Apple/Google/etc processed them,
+usually in a matter of milliseconds.
+
+Resulting from this overall privacy design, even the seizure of a chatmail server,
+or the full seizure of the central Delta Chat notification proxy
+would not reveal private information that Push services do not already have.
+
+
+### Why does Delta Chat integrate with centralized proprietary Apple/Google push services?
+
+Delta Chat is a free and open source decentralized messenger with free server choice,
+but we want users to reliably experience "instant delivery" of messages,
+like they experience from Whatsapp, Signal or Telegram apps,
+without asking questions up-front that are more suited to expert users or developers.
+
+Note that Delta Chat has a [small and privacy-preserving Push Notification system](#privacy-notifications)
+that achieves "instant delivery" of messages for all chatmail servers
+including a potential one [you might setup yourself without our permission](https://delta.chat/chatmail#selfhosted).
+Welcome to the power of the interoperable and massive chatmail and e-mail system :)
+
+
 ## Beveiliging en versleuteling
 
 ### Welke standaarden worden gebruikt bij eind-tot-eindversleuteling?
@@ -247,40 +388,27 @@ End-to-end encryption is guaranteed if there is a green checkmark next to the ch
 
 ### How can I get guaranteed end-to-end encryption and green checkmarks? {#howtoe2ee}
 
-Meet your chat partner outside Delta Chat, preferably in person
-but a second channel like a video chat
-or a different messenger is fine as well.
-Perform the following QR show/scan procedure with your chat partner.
-One of you is the "Inviter", the other is the "Joiner". 
+If you have a second communication channel with your chat partner,
+like a video chat or a different messenger,
+you can generate an invite link.
 
-**Inviter side**:
+If you are together in person,
+you can show a QR code to your chat partner.
 
-- Group invitation: 
-  Tap the chat group title to see its member list, and select "QR Invite code". 
-  Share the QR image with the other side either in person or through a second channel.
+- For **Group invitations**,
+  tap the chat group title to see its member list,
+  and select "QR Invite code".
 
-- Direct 1:1 chat invitation: 
-  Tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
-  on the Delta Chat app main screen.
-  Share the QR image with the other side either in person or through a second channel.
-
-**Joiner side**:
-
-- Tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
+- For **direct 1:1 chat invitations**,
+  tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
   on the Delta Chat app main screen.
 
-- Choose "SCAN QR CODE" and scan the QR Code 
-  that you see from your chat partner in a second channel.
+Let your chat partner scan the QR image
+with their Delta Chat app,
+or click "Copy" or "Share" to create an invite link
+and share it with your chat partner.
 
-- Tap "OK"
-
-If the QR code scanning doesn't work in your situation,
-you can also **Share** (or **Copy to Clipboard**) an equivalent invite link
-to the other person through a second channel.
-
-**Both Inviter and Joiner**:
-
-Wait while [Secure-Join network messages are exchanged](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) between both devices.
+Now wait while [Secure-Join network messages are exchanged](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) between both devices.
 
 - If both devices are online,
   both sides will eventually see a (group or direct) chat with a green checkmark
@@ -347,7 +475,7 @@ even if the contact is a member there.
 **Your contact is using Delta Chat on a second device (phone or laptop)**
 
 If they have another device with a Delta Chat app running,
-they should remove the account from the new device
+they should remove the profile from the new device
 and add it [as a second device as described here](#multiclient).
 As soon as they message you afterwards, the warning will be gone
 and guaranteed encryption is established with both devices of your contact. 
@@ -355,8 +483,8 @@ and guaranteed encryption is established with both devices of your contact.
 **Your contact reinstalled Delta Chat using their old account login**
  
 If they have [a backup file](#backup), 
-they should remove the account from the new device 
-and rather import the backup file to re-create their account. 
+they should remove the profile from the new device
+and rather import the backup file to re-create their profile.
 As soon as they message you afterwards, the warning will be gone
 and guaranteed encryption is re-established for this contact.
 
@@ -506,12 +634,12 @@ deliver messages to recipient's devices.
 
 Both for protecting against metadata-collecting e-mail servers 
 as well as against the threat of device seizure
-we recommend to use a Delta Chat optimized [e-mail server instance](https://delta.chat/serverguide)
-to create pseudonymous temporary accounts through QR-code scans.
-Note that Delta Chat apps on all platforms support multiple accounts 
-so you can easily use action-specific "1-week" or "1-month" accounts next to your "main" account
-with the knowledge that all temporary account data, along with all metadata, will be deleted.
-Moreover, if a device is seized then contacts using temporary e-mail accounts
+we recommend to use a [chatmail server](https://delta.chat/chatmail)
+to create pseudonymous temporary profiles through QR-code scans.
+Note that Delta Chat apps on all platforms support multiple profiles
+so you can easily use situation-specific profiles next to your "main" profile
+with the knowledge that all their data, along with all metadata, will be deleted.
+Moreover, if a device is seized then contacts using temporary profiles
 can not be identified easily, as compared to messengers which reveal
 phone numbers in chat groups which in turn are often associated with legal identities.
 
@@ -549,7 +677,7 @@ and their non-Autocrypt e-mail app.
 ### How can i get an end-to-end encrypted chat with a Delta Chat contact who sometimes uses webmail or another non-Autocrypt e-mail app? 
 
 If you need a safely end-to-end encrypted chat with a contact 
-who is using their account both with Delta Chat and non-Autocrypt apps (e.g. webmail),
+who is using their e-mail account both with Delta Chat and non-Autocrypt apps (e.g. webmail),
 it's best to setup [guaranteed end-to-end encryption with them](#howtoe2ee)
 and then create a guaranteed end-to-end encrypted group chat with you two as members. 
 In this group chat all messages will be end-to-end encrypted 
@@ -746,8 +874,8 @@ Deze methode is vooral bedoeld voor situaties waarin ‘Tweede apparaat toevoege
   screen unlock PIN, pattern, or password. Then you can click on "Start
   Backup". This saves the backup file to your device. Now you have to transfer
   it to the other device somehow.
-- On the new device, on the login screen, instead of logging into your email
-  account, choose "Import Backup". After import, your conversations, encryption
+- On the new device, in the "I already have a profile" menu,
+  choose "restore from backup". After import, your conversations, encryption
   keys, and media should be copied to the new device.
   - **If you use iOS:** and you encounter difficulties, maybe
     [this guide](https://support.delta.chat/t/import-backup-to-ios/1628) will
@@ -851,23 +979,20 @@ samenstellen.
 
 ### Hoe kan ik mijn locatie delen met anderen?
 
-- Je kunt locatiedeling inschakelen in de sectie ‘experimentele functies’ in
-  de geavanceerde instellingen.
-- Als je vervolgens een locatie wilt delen, dan kun je dat doen door ‘locatie’ te kiezen als
-  "bijlage". Vervolgens kun je een tijdspanne kiezen zodat je locatie niet onbeperkt
-  wordt gedeeld met gesprekspartners. De tijdspanne ligt tussen 5 minuten en 6 uur.
-- Als je locatie wijzigt, dan zien anderen dat op de kaart in het
-  gesprek.
-- Als je kaarten en locaties van anderen wilt bekijken, schakel deze functie dan ook in
-  in de geavanceerde instellingen.
-- Let op: met deze functie deel je je locatie met iedereen.
-  Om de kaart te tonen worden er kaartdelen opgehaald van
-  mapbox.com. Als je dus de kaart bekijkt, dan wordt aan mapbox.com gevraagd om een kaart van een
-  bepaald gebied te tonen. Als je dit privacygevoelig vindt, dan kun je deze functie beter niet gebruiken.
-  We zijn echter hard aan het zoeken naar een gedecentraliseerd alternatief voor Mapbox!
-- Op computers kan je locatie doorgaans niet worden bepaald. In zulke gevallen kun je
-  rechts klikken op de kaart en handmatig een locatie aangeven, welke vervolgens als bericht met kaart
-  wordt verstuurd.
+- You can turn on location streaming in the "experimental features" section of
+  the advanced settings.
+- Now, if you want to share your location in a chat, go to "attach" and select
+  "location". You can now set a time frame in which your location will be
+  streamed to your chat partners, between 5 minutes and 6 hours.
+- When your location changes, the others in the chat can view it on a map in
+  the chat.
+- To see the map and view locations of others, you need to turn on the feature
+  in the advanced settings.
+- This feature will not share your location with anyone except your chat partners.
+  Map tiles are downloaded from [OpenStreetMap](https://openstreetmap.org).
+- On desktop, the OS typically can't determine your location. Instead you can
+  right click on the map and describe a location, which is sent to the chat as
+  a message, but also appears on the map.
 
 
 ### Wat beveiligt de experimentele databankversleuteling precies?
@@ -901,7 +1026,7 @@ In dat geval kan Delta Chat Postvak IN negeren en alleen nieuwe gesprekken in de
 ### Hoe kan ik mijn e-mailadres veranderen in de app?
 
 1. Change your address in “Settings → Advanced → Password and Account” and
-   enter the password of your new account (and if necessary, server settings).
+   enter the password of your new e-mail account (and if necessary, server settings).
    You will get an information notice about the fact that you are moving to a new address. 
    An additional notice will also show up in your "Device messages" chat. 
 
@@ -929,27 +1054,27 @@ Op bepaalde besturingssystemen kun je gevraagd
 worden bepaalde rechten toe te kennen aan de app.
 Delta Chat doet het volgende met deze rechten:
 
-- Camera *(kan worden ingetrokken)*
-  - foto's en video's maken: voor het versturen van foto's
-- Contactpersonen *(kan worden ingetrokken*
-  - contactpersonen uitlezen: voor het vinden van gesprekspartners
-- Locatie *(kan worden ingetrokken)*
-  - toegang tot je locatie, bij benadering (netwerklocatiebronnen): voor de locatie-streamingfunctie
-  - toegang tot je precieze locatie (GPS en netwerklocatiebronnen): voor de locatie-streamingfunctie
-- Microfoon *(kan worden ingetrokken)*
-  - audio opnemen: voor het versturen van audioberichten
-- Opslag *(kan worden ingetrokken)*
-  - de inhoud van je sd-kaart aanpassen of wissen: om bijlagen op te slaan
-  - de inhoud uitlezen van je sd-kaart: om bestanden te delen met je contactpersonen
-- Andere mogelijkheden:
-  - je audio-instellingen aanpassen: zodat je beltonen en het meldingsvolume kunt aanpassen en audioberichten kunt ontvangen en versturen
-  - automatisch opstarten: zodat je Delta Chat niet zelf hoeft op te starten
-  - trillen beheren: voor meldingen
-  - netwerkverbindingen bekijken: om je e-mailprovider te koppelen
-  - slaapstand onderdrukken: zodat je de code van het Autocrypt-instelbericht eenvoudiger kunt overtypen
-  - volledige netwerktoegang: om je e-mailprovider te koppelen
-  - Wi-Fi-verbindingen bekijken: om je e-mailprovider te koppelen
-  - vraag om accu-optimalisatie te negeren: voor gebruikers die continue berichten willen blijven ontvangen
+- Camera *(can be disallowed)*
+  - take pictures and videos: for sending Photos
+- Contacts *(can be disallowed)*
+  - read your contacts: to discover contacts to chat with
+- Location *(can be disallowed)*
+  - access approximate location (network location sources): for the location streaming feature
+  - access precise location (GPS and network location sources): for the location streaming feature
+- Microphone *(can be disallowed)*
+  - record audio: for audio messages
+- Storage *(can be disallowed)*
+  - modify or delete the contents of your SD card: to download message attachments
+  - read the contents of your SD card: to share files with your contacts
+- Other app capabilities
+  - change your audio settings: so you can choose ring tones and volume for notifications and audio messages
+  - run at startup: so you don't have to start Delta Chat manually
+  - control vibration: for notifications
+  - view network connections: to connect to your E-Mail provider
+  - prevent phone from sleeping: so you can easier copy the security code during the Autocrypt Setup Message
+  - have full network access: to connect to your E-Mail provider
+  - view Wi-Fi connections: to connect to your E-Mail provider
+  - ask to ignore battery optimisations: for achieving "instant message delivery"
 
 
 ### Wordt _mijn_ e-mailprovider ondersteund door Delta Chat?
@@ -975,24 +1100,6 @@ Als je een e-mailprovider gebruikt die OAuth2 ondersteunt, zoals Gmail of Yandex
 Delta Chat is open source. Dit betekent dat je de [bron-
 code](https://github.com/deltachat/deltachat-core-rust/blob/master/src/login_param.rs)
 kunt bekijken om er zeker van te zijn dat er veilig wordt omgegaan met je inloggegevens. We ontvangen graag feedback hierover.
-
-
-### Delta Chat gebruik e-mail. Is het dan wel een _Instant_ Messenger?
-
-- Het versturen en ontvangen van berichten gebeurt doorgaans binnen enkele seconden. Soms
-  duurt het iets langer, maar dat komt ook wel eens voor bij
-  andere IM's.
-- Het werkt het snelst als beide partijen de app actief gebruiken. Soms duurt het
-  iets langer als de app op de achtergrond draait.
-- Het ontvangen van berichten kan dan enkele minuten duren omdat zowel Android als iOS Delta Chat
-  regelmatig onderbreken, en slecht soms weer
-  hervatten. Deze vertraging is doorgaans merkbaarder op iOS dan op Android.
-- Let op: Delta Chat maakt geen gebruik van Google Cloud Messaging (GCM) of Apple's
-  Push Notification Service (APNS) omdat deze gebruikersacties bijhouden en
-  centraal beheer vereisen, wat Delta Chat zoveel mogelijk wil voorkomen.
-- Maar dat Android en iOS achtergrondapps onderbreken is een
-  algemeen probleem waar veel apps last van hebben. Ga naar
-  [dontkillmyapp.com](https://dontkillmyapp.com/) voor meer informatie hieromtrent.
 
 
 ### Welke berichten vind ik terug in Delta Chat?

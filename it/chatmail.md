@@ -4,18 +4,17 @@ lang: it
 ---
 
 
-## Cosa sono i server di chatmail?
+## Cosa sono i server chatmail e come selezionarne uno?
 
-<img alt="Chatmail logo" src="../assets/logos/chatmail.svg" width="160" style="float:right;" />
+<img alt="Chatmail logo" src="../assets/logos/chatmail.svg" width="80" style="float:right;" />
 
-I server di chatmail sono ottimizzati per la messaggistica con Delta Chat
-per fornire un'esperienza utente comoda, veloce e rispettosa della privacy.
+I server chatmail sono ottimizzati per messaggiare con Delta Chat 
+per fornire un'esperienza utente veloce e rispettosa della privacy, 
+interoperabile in modo sicuro con chatmail e server e-mail classici. 
+**Tocca il collegamento di un server chatmail** per visualizzare la home page, quindi tocca il codice di invito QR che trovi li:
 
-Il progetto Delta Chat gestisce il server di chatmail con registrazione aperta predefinito
-su [nine.testrun.org](https://nine.testrun.org)
-che è rimasto stabile dall'[annuncio di Chatmail di dicembre 2023](https://delta.chat/en/2023-12-13-chatmail).
-
-Inoltre, ci sono **server di chatmail gestiti dalla comunità: tocca per iscriverti lì invece che su nine.testrun.org:**
+- [nine.testrun.org](https://nine.testrun.org) è il server chatmail di inserimento predefinito
+per le app Delta Chat ed è stabile dall' [Annuncio Chatmail di Dicembre 2023](https://delta.chat/en/2023-12-13-chatmail).
 
 - [mehl.cloud](https://mehl.cloud) è orientato agli utenti di lingua tedesca
 ed è stabile da gennaio 2024.
@@ -26,8 +25,21 @@ ed è stabile da gennaio 2024.
 - [bcc.chat](https://bcc.chat) opera negli Stati Uniti ed è stato
 stabile da febbraio 2024.
 
-Tutti i server chatmail sono completamente sicuri e interoperabili tra loro,
-e forniscono notifiche istantanee agli utenti di dispositivi mobili.
+- [chatmail.woodpeckersnet.space](https://chatmail.woodpeckersnest.space/)
+  è rivolto agli utenti di lingua italiana ed è
+  stabile da Maggio 2024.
+
+Tutti i server chatmail sono gestiti da gruppi e persone diversi. 
+Il server predefinito nine.testrun.org è gestito dai membri principali del team Delta Chat.
+
+## Posso utilizzare anche un normale server e-mail invece di chatmail?
+
+Sì, molti utenti utilizzano con successo i normali server e-mail
+soprattutto se desiderano gestire le normali comunicazioni e-mail con Delta Chat.
+Consulta il [database dei fornitori](https://provviders.delta.chat) per le opzioni.
+Tieni presente che Delta Chat supporta quindi più profili
+va bene avere un profilo configurato con il tuo normale indirizzo e-mail,
+e un altro profilo per chattare.
 
 
 ## In cosa differiscono i server chatmail dai server e-mail?
@@ -46,28 +58,18 @@ I server chatmail sono server e-mail minimi progettati per velocità, sicurezza 
 i messaggi in arrivo vengono rigorosamente controllati per verificarne l'autenticità.
 
 
-## Posso utilizzare anche un normale server e-mail?
-
-Sì, molti utenti utilizzano con successo i normali server e-mail
-soprattutto se desiderano gestire le normali comunicazioni e-mail con Delta Chat.
-Consulta il [database dei fornitori](https://provviders.delta.chat) per le opzioni.
-Tieni presente che Delta Chat supporta quindi più account
-va bene avere un account configurato con il tuo normale indirizzo e-mail,
-e un altro account per chattare.
-
-
 ## Quanto sono affidabili i server  chatmail?
 
 Ciascun server chatmail fornisce ulteriori informazioni sulla privacy nella propria pagina web.
 In genere, un server chatmail elabora solo messaggi crittografati e
-implementa la cancellazione automatica e incondizionata dei messaggi dopo un massimo di 40 giorni.
+implementa la cancellazione automatica e incondizionata dei messaggi dopo un massimo di 20 giorni.
 
 Delta Chat fornisce [crittografia end-to-end garantita](https://delta.chat/en/2023-11-23-jumbo-42)
 il che significa che nella maggior parte dei casi d'uso, gli operatori dei server non potranno mai leggere i tuoi messaggi anche se ci provano,
 una garanzia supportata da una recente [analisi di sicurezza dell'ETH di Zurigo](https://delta.chat/en/2024-03-25-crypto-analysis-securejoin).
 
 
-## Come vengono gestiti i server chatmail?
+## Come vengono gestiti i server chatmail? Posso eseguirne uno io stesso? {#selfhosted}
 
 Tutti i server chatmail vengono distribuiti e aggiornati automaticamente utilizzando
 [il repository pubblico di sviluppo di chatmail](https://github.com/deltachat/chatmail).

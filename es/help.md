@@ -8,31 +8,46 @@ header: Preguntas Frecuentes
 
 ## ¿Qué es Delta Chat? 
 
-Delta Chat es una nueva aplicación de chat que envía mensajes por correo electrónico, encriptados si es posible, con Autocrypt.
-**No tiene que registrarse en ningún lugar, solo use su cuenta de correo electrónico existente con Delta Chat.**
+Delta Chat is a reliable, decentralized and secure messaging app, 
+available for mobile and desktop platforms.
+
+Delta Chat feels like Whatsapp or Telegram but you can also use and regard it as an e-mail app. 
+You can signup anonymously to a variety of [interoperable chatmail servers](https://delta.chat/chatmail)
+which are minimal e-mail servers optimized for fast and secure operations. 
+Or you may use classic e-mail servers and an existing e-mail account
+in which case Delta Chat acts as an e-mail app. 
 
 <img style="float:right; width:50%; max-width:360%; margin:1em;" src="../assets/home/delta-what-optim.png" />
 
 
 ### ¿Cómo puedo encontrar personas con las que chatear? 
 
-Con Delta Chat, puede escribir en cada dirección de correo electrónico existente - incluso
-si el destinatario no está utilizando la aplicación Delta Chat. No es necesario que el
-destinatario instale la misma aplicación que usted, como ocurre con otros mensajeros.
+To securely setup contact with others [scan an invite QR code 
+or share an invite link](#howtoe2ee). 
+This is required when using a (default) chatmail-based chat profile 
+because chatmail servers reject un-encrypted outgoing messages.
+
+If you create a chat profile with a classic e-mail address 
+you may manually create a contact if you know their e-mail address
+and then write a message to them 
+even if the recipient is not using Delta Chat.
 
 
 ### ¿Cuáles son las ventajas de Delta Chat comparado con otras aplicaciones de mensajería?
 
-- _Independent_ of any company or services. _You_ own your data.
-- Your data is not saved on a central server unless all users are using
-  the same e-mail servers
-- You do not distribute your address book to anyone.
-- _Fast_ by the use of Push-IMAP.
-- _Largest userbase_ - recipients _not_ using Delta Chat can be reached as well.
-- _No Spam_ - only messages of known users are shown by default.
-- _End-to-end encryption_ via Autocrypt.
-- _Copyleft_ and _Standards_ based libre software.
-- _Flexible identity_ with built-in support for [multiple accounts](#multiple-accounts)
+- Anonymous chat profiles with fast, secure and interoperable [chatmail servers](https://delta.chat/chatmail)
+  which offer instant Push Notifications for iOS and Android devices. 
+
+- Pervasive [multi-profile](#multiple-accounts) and multi-device support on all platforms. 
+
+- Interactive [web apps in chats](https://webxdc.org/apps) for gaming and collaboration
+
+- [Audited end-to-end encryption](#security-audits) 
+  safe against network and server attacks. 
+
+- Free and Open Source software, both app and server side. 
+  Built on [E-mail and Web Internet Standards](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md), 
+  [to avoid "yet another standard syndrome (xkcd 927)"](https://xkcd.com/927/) 
 
 
 ### ¿Qué pasa si espero un mensaje de alguien a quien no le escribí en el pasado?
@@ -48,12 +63,24 @@ destinatario instale la misma aplicación que usted, como ocurre con otros mensa
 
 - Para mejorar el rendimiento, las imágenes se optimizan y se envían en un tamaño más pequeño de forma predeterminada, pero puedes enviarla como un "archivo" para conservar la original.
 
-<h3 id="multiple-accounts">¿Cómo puedo agregar o cambiar entre múltiples cuentas?</h3>
 
-Tap the profile image in the upper left corner to **switch accounts**.
-You will also find **Add Account** there.
+### What are profiles? How can I switch between them? {#multiple-accounts}
 
-También puedes desear aprender [cómo agregar cuentas a múltiples dispositivos](#multiclient).
+A profile is **a name, a picture** and some additional information for encrypting messages.
+A profile lives on your device(s) only
+and uses a chatmail or a classic e-mail server to transport messages.
+
+On first installation of Delta Chat a first profile is created.
+
+Later, you can tap your profile image in the upper left corner to **Add Profiles**
+or to **Switch Profiles**.
+
+You may want to use separate profiles for political, family or work related activities,
+or e. g. for a dedicated "spam-profile" with which you register at websites and platforms
+that tend to cause unsolicited messages ("spam") sooner or later.
+
+You may also wish to learn [how to use the same profile on multiple devices](#multiclient).
+
 
 ### ¿Quién ve mi foto de perfil?
 
@@ -215,6 +242,122 @@ para que los otros dispositivos también puedan descargarlos.
   older than that.
 
 
+## Instant message delivery and Push Notifications {#instant-delivery}
+
+
+### What are Push Notifications? How can I get instant message delivery?
+
+Push Notifications are sent by Apple and Google "Push services" to a user's device
+so that an inactive Delta Chat app can fetch messages in the background
+and show notifications on a user's phone if needed.
+
+Push Notifications work with all [chatmail](https://delta.chat/chatmail) servers on
+
+- iOS devices, by integrating with Apple Push services.
+
+- Android devices, by integrating with the Google FCM Push service,
+  including on devices that use [microG](https://microg.org)
+  instead of proprietary Google code on the phone.
+
+As of May 2024, classic e-mail servers do not support Push Notifications
+for Delta Chat users.
+
+
+### Are Push Notifications enabled on iOS devices? Is there an alternative?
+
+Yes, Delta Chat automatically uses Push Notifications for [chatmail](https://delta.chat/chatmail) profiles.
+And no, there is no alternative on Apple's phones to achieve instant message delivery
+because Apple devices do not allow Delta Chat to fetch data in the background.
+Push notifications are automatically activated for iOS users because
+[Delta Chat's privacy-preserving Push Notification system](#privacy-notifications)
+does not expose data to Apple that it doesn't already have.
+
+
+### Are Push notifications enabled / needed on Android devices? {#android-push}
+
+If a "Push Service" is available, Delta Chat enables Push Notifications
+to achieve instant message delivery for all chatmail users.
+If you are using a classic e-mail provider instead of [chatmail](https://delta.chat/chatmail) servers,
+Push Notifications are not available.
+
+In the Delta Chat "Notifications" settings for "Instant delivery"
+you can change the following settings effecting all chat profiles:
+
+- Use Push Service: the default when using chatmail profiles and if
+  a Push service is available on the phone.
+  If you have both chatmail and classic e-mail profiles,
+  then Push Notification will only work
+  for incoming messages on chatmail profiles.
+
+- Use Background Connection: If you are not using a Push service,
+  you may disable "battery optimizations" for Delta Chat,
+  allowing it to fetch messages in the background.
+  However, there could be delays from minutes to hours.
+  Some Android vendors even restrict apps completely
+  (see [dontkillmyapp.com](https://dontkillmyapp.com))
+  and Delta Chat might not show  incoming messages
+  until you manually open the app again.
+  
+- Force Background Connection: This is the fallback option
+  if the previous options are not available or do not achieve "instant delivery".
+  Enabling it causes a permanent notification on your phone
+  which may sometimes be "minified" with recent Android phones.
+
+Both "Background Connection" options are energy-efficient and
+safe to try if you experience messages arrive only with long delays.
+
+
+### How private are Delta Chat Push Notifications? {#privacy-notifications}
+
+Delta Chat Push Notification support avoids leakage of private information.
+It does not leak e-mail, IP address or message content (not even encrypted)
+to any system involved in the delivery of Push Notifications.
+
+Here is how Delta Chat apps perform Push Notification delivery:
+
+- A Delta Chat app obtains a "device token" locally and stores it
+  on the [chatmail](https://delta.chat/chatmail) server.
+
+- When a [chatmail](https://delta.chat/chatmail) server receives an e-mail for a Delta Chat user
+  it forwards the "device token" to the central Delta Chat notification proxy.
+
+- The central Delta Chat notification proxy forwards
+  the "device token" to the respective Push service (Apple, Google, etc.),
+  without ever knowing the IP or e-mail address of Delta Chat users.
+
+- The central Push Service (Apple, Google, etc.)
+  wakes up the Delta Chat app on your device
+  to check for new messages in the background.
+  It does not know about the chatmail or e-mail address of the device it wakes up.
+  The central Apple/Google Push services never see an e-mail address (sender or receiver)
+  and also never see any message content (also not in encrypted forms).
+
+As of May 2024, chatmail servers know about "device tokens"
+but we plan to encrypt this information to the notification proxy
+such that the chatmail server never learns the device token.
+
+The central Delta Chat notification proxy [is small and fully implemented in Rust](https://github.com/deltachat/notifiers)
+and forgets about device-tokens as soon as Apple/Google/etc processed them,
+usually in a matter of milliseconds.
+
+Resulting from this overall privacy design, even the seizure of a chatmail server,
+or the full seizure of the central Delta Chat notification proxy
+would not reveal private information that Push services do not already have.
+
+
+### Why does Delta Chat integrate with centralized proprietary Apple/Google push services?
+
+Delta Chat is a free and open source decentralized messenger with free server choice,
+but we want users to reliably experience "instant delivery" of messages,
+like they experience from Whatsapp, Signal or Telegram apps,
+without asking questions up-front that are more suited to expert users or developers.
+
+Note that Delta Chat has a [small and privacy-preserving Push Notification system](#privacy-notifications)
+that achieves "instant delivery" of messages for all chatmail servers
+including a potential one [you might setup yourself without our permission](https://delta.chat/chatmail#selfhosted).
+Welcome to the power of the interoperable and massive chatmail and e-mail system :)
+
+
 ## Cifrado y seguridad
 
 ### ¿Qué estándares se utilizan para el cifrado de extremo a extremo? 
@@ -245,36 +388,27 @@ El cifrado de extremo a extremo está garantizado si hay una estampilla verde  c
 
 ### ¿Cómo puedo obtener cifrado de extremo a extremo garantizado y estampillas verdes? {#howtoe2ee}
 
-Encuentrate con tu compañero de chat fuera de Delta Chat, preferiblemente en persona, pero también está bien utilizar un segundo canal como una videollamada o una applicaciónde chat diferente. Realiza el siguiente procedimiento de mostrar/escanear QR con tu compañero de chat.
+If you have a second communication channel with your chat partner,
+like a video chat or a different messenger,
+you can generate an invite link.
 
-**Lado del invitado**:
+If you are together in person,
+you can show a QR code to your chat partner.
 
-- Invitación de grupo:
-Toca el título del grupo de chat para ver la lista de miembros y selecciona "Código de invitación QR".
-Comparte la imagen del código QR con la otra persona, ya sea en persona o a través de otro canal de comunicación.
+- For **Group invitations**,
+  tap the chat group title to see its member list,
+  and select "QR Invite code".
 
-- Direct 1:1 chat invitation: 
-  Tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
-  on the Delta Chat app main screen.
-  Share the QR image with the other side either in person or through a second channel.
-
-**Lado del que se une**:
-
-- Tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
+- For **direct 1:1 chat invitations**,
+  tap the QR Code icon <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" />
   on the Delta Chat app main screen.
 
-- Choose "SCAN QR CODE" and scan the QR Code 
-  that you see from your chat partner in a second channel.
+Let your chat partner scan the QR image
+with their Delta Chat app,
+or click "Copy" or "Share" to create an invite link
+and share it with your chat partner.
 
-- Tap "OK"
-
-If the QR code scanning doesn't work in your situation,
-you can also **Share** (or **Copy to Clipboard**) an equivalent invite link
-to the other person through a second channel.
-
-**Tanto el que invita como el que se une**:
-
-Espere mientras se intercambian los mensajes de [Secure-Join](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) entre ambos dispositivos.
+Now wait while [Secure-Join network messages are exchanged](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) between both devices.
 
 - Si ambos dispositivos están en línea,
 ambas partes eventualmente verán un chat (grupal o directo) con una estampilla verde
@@ -481,12 +615,12 @@ entregar mensajes a los dispositivos del destinatario.
 
 Both for protecting against metadata-collecting e-mail servers 
 as well as against the threat of device seizure
-we recommend to use a Delta Chat optimized [e-mail server instance](https://delta.chat/serverguide)
-to create pseudonymous temporary accounts through QR-code scans.
-Note that Delta Chat apps on all platforms support multiple accounts 
-so you can easily use action-specific "1-week" or "1-month" accounts next to your "main" account
-with the knowledge that all temporary account data, along with all metadata, will be deleted.
-Moreover, if a device is seized then contacts using temporary e-mail accounts
+we recommend to use a [chatmail server](https://delta.chat/chatmail)
+to create pseudonymous temporary profiles through QR-code scans.
+Note that Delta Chat apps on all platforms support multiple profiles
+so you can easily use situation-specific profiles next to your "main" profile
+with the knowledge that all their data, along with all metadata, will be deleted.
+Moreover, if a device is seized then contacts using temporary profiles
 can not be identified easily, as compared to messengers which reveal
 phone numbers in chat groups which in turn are often associated with legal identities.
 
@@ -692,7 +826,7 @@ No es necesario un dispositivo para que el otro funcione.
   (we try hard to make the app work in background, but [systems tend to kill apps](https://dontkillmyapp.com), unfortunately)
 
 - Delta Chat is **already logged in** on the destination device?
-  You can use multiple accounts per device, just [add another account](#multiple-accounts)
+  You can use multiple profiles per device, just [add another profile](#multiple-accounts)
 
 - If you still have problems or if you **cannot scan a QR code**
   try the **manual transfer** described below
@@ -706,8 +840,8 @@ This method is only recommended if "Add Second Device" as described above does n
   screen unlock PIN, pattern, or password. Then you can click on "Start
   Backup". This saves the backup file to your device. Now you have to transfer
   it to the other device somehow.
-- On the new device, on the login screen, instead of logging into your email
-  account, choose "Import Backup". After import, your conversations, encryption
+- On the new device, in the "I already have a profile" menu,
+  choose "restore from backup". After import, your conversations, encryption
   keys, and media should be copied to the new device.
   - **If you use iOS:** and you encounter difficulties, maybe
     [this guide](https://support.delta.chat/t/import-backup-to-ios/1628) will
@@ -820,11 +954,8 @@ dialog.
   the chat.
 - To see the map and view locations of others, you need to turn on the feature
   in the advanced settings.
-- This feature will not share your location with anyone except your chat
-  partners. *But:* to show the map, we need to download map tiles from
-  mapbox.com, so if you *view* the map, mapbox.com is asked for the map of a
-  specific area. If this is a privacy risk for you, this feature might not be
-  for you. We are working on finding a decentralized alternative for Mapbox.
+- This feature will not share your location with anyone except your chat partners.
+  Map tiles are downloaded from [OpenStreetMap](https://openstreetmap.org).
 - On desktop, the OS typically can't determine your location. Instead you can
   right click on the map and describe a location, which is sent to the chat as
   a message, but also appears on the map.
@@ -861,7 +992,7 @@ En este caso, Delta Chat no necesita monitorear la Bandeja de entrada, y es sufi
 ### ¿Cómo puedo cambiar mi cuenta a una dirección de correo electrónico diferente?
 
 1. Change your address in “Settings → Advanced → Password and Account” and
-   enter the password of your new account (and if necessary, server settings).
+   enter the password of your new e-mail account (and if necessary, server settings).
    You will get an information notice about the fact that you are moving to a new address. 
    An additional notice will also show up in your "Device messages" chat. 
 
@@ -886,27 +1017,27 @@ Dependiendo del sistema operativo en uso,
 quizás se te solicite garantizar permisos a la app.
 Esto es lo que hace Delta Chat con esos permisos:
 
-- Camera *(puede ser desactivada)*
-  - tomar fotos y videos: para enviar fotos
-- Contactos *(puede ser desactivado)*
-  - lectura de tus contactos: para descubrir con que contactos chatear
-- Ubicación *(puede ser desactivada)*
-  - acceder a la ubicación aproximada (recursos de localización en red): para la función de transmitir ubicación
-  - acceder a la ubicación precisa (recursos de ubicación en red y GPS): para la función de transmitir ubicación
-- Micrófono *(puede ser desactivado)*
-  - grabar audio: para mensajes de audio
-- Almacenamiento *(puede ser desactivado)*
-  - modificar o borrar el contenido de tu tarjeta SD: para descargar los adjuntos de los mensajes
-  - leer el contenido de tu tarjeta SD: para compartir archivos con tus contactos
-- Otras capacidades de la app
-  - modificar los ajustes de audio: así puedas elegir los ringtones y volumen para las notificaciones y mensajes de audio
-  - lanzarse al inicio: así no tengas que iniciar Delta Chat de forma manual
-  - control de vibración: para notificaciones
-  - observar las conexiones de red: para conectarte a tu proveedor de correo electrónico
-  - evitar que el teléfono duerma: así puedes copiar de forma sencilla el código de seguridad durante el mensaje de configuración de autoencriptación
-  - tener acceso completo a la red: para conectarse a tu servidor de correo electrónico
-  - mirar las conexiones de Wi-Fi: para conectarse a tu servidor de correo electrónico
-  - ignorar optimizaciones de batería: para los usuarios que deseen recibir notificaciones en todo momento
+- Camera *(can be disallowed)*
+  - take pictures and videos: for sending Photos
+- Contacts *(can be disallowed)*
+  - read your contacts: to discover contacts to chat with
+- Location *(can be disallowed)*
+  - access approximate location (network location sources): for the location streaming feature
+  - access precise location (GPS and network location sources): for the location streaming feature
+- Microphone *(can be disallowed)*
+  - record audio: for audio messages
+- Storage *(can be disallowed)*
+  - modify or delete the contents of your SD card: to download message attachments
+  - read the contents of your SD card: to share files with your contacts
+- Other app capabilities
+  - change your audio settings: so you can choose ring tones and volume for notifications and audio messages
+  - run at startup: so you don't have to start Delta Chat manually
+  - control vibration: for notifications
+  - view network connections: to connect to your E-Mail provider
+  - prevent phone from sleeping: so you can easier copy the security code during the Autocrypt Setup Message
+  - have full network access: to connect to your E-Mail provider
+  - view Wi-Fi connections: to connect to your E-Mail provider
+  - ask to ignore battery optimisations: for achieving "instant message delivery"
 
 
 ### ¿Delta Chat funciona con _mi_ proveedor de correo electrónico?
@@ -936,21 +1067,6 @@ token de acceso.
 
 Como Delta Chat es de Código Abierto, puedes investigar el Código Fuente si quieres verificar que tus credenciales son gestionadas de manera segura.
 Estamos felices de recibir críticas que hagan la aplicación más segura para todos los usuarios.
-
-
-### Si Delta Chat utiliza el correo electrónico, ¿es realmente una aplicación de mensajería _instantánea_?
-
-- Sending and receiving messages takes a few seconds, typically. Sometimes
-  there are cases where it takes longer but that is arguably true as well for
-  any other messenger.
-- Instant chatting works fast if both parties are actively using the app. It's
-  sometimes slower if the app is running in the background.
-- Receiving messages then can take minutes because both Android and iOS often
-  stop Delta Chat from running in the background, and only wake it up
-  occasionally. This artificial delay is usually worse on iOS than on Android.
-- However, Android and iOS kill apps running in the background is a
-  problem for many legitimate apps. For more information, see
-  [dontkillmyapp.com](https://dontkillmyapp.com/).
 
 
 ### ¿Qué mensajes se muestran en Delta Chat?
@@ -1080,7 +1196,7 @@ a través de [Autocrypt](https://autocrypt.org).
   completing Rust/Python bindings and instigating a Chat-bot eco-system. 
 
 - In 2021 we received further EU funding for two Next-Generation-Internet
-  proposals, namely for [EPPD - e-mail provider portability directory](https://dapsi.ngi.eu/hall-of-fame/eppd/) (~97K EUR) and [AEAP - email address porting](https://nlnet.nl/project/EmailPorting/) (~90K EUR) which resulted in better multi-account support, improved QR-code contact and group setups and many networking improvements on all platforms.
+  proposals, namely for [EPPD - e-mail provider portability directory](https://dapsi.ngi.eu/hall-of-fame/eppd/) (~97K EUR) and [AEAP - email address porting](https://nlnet.nl/project/EmailPorting/) (~90K EUR) which resulted in better multi-profile support, improved QR-code contact and group setups and many networking improvements on all platforms.
 
 - From End 2021 till March 2023 we received *Internet Freedom* funding (500K USD) from the
   U.S. Bureau of Democracy, Human Rights and Labor (DRL). 

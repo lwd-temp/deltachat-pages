@@ -8,30 +8,31 @@ header: Często Zadawane Pytania
 
 ## Czym jest Delta Chat?
 
-Delta Chat to nowa aplikacja do czatowania, która wysyła wiadomości e-mailem, w miarę możliwości zaszyfrowane przy użyciu Autocrypt.
-**Nie musisz się nigdzie rejestrować, po prostu użyj swojego istniejącego konta e-mail w Delta Chat.**
+Delta Chat to niezawodna, zdecentralizowana i bezpieczna aplikacja do przesyłania wiadomości, dostępna na platformy mobilne i stacjonarne.
+
+Delta Chat przypomina Whatsapp lub Telegram, ale możesz go również używać i traktować jako aplikację e-mail. Możesz zarejestrować się anonimowo na różnych [interoperacyjnych serwerach chatmail](https://delta.chat/chatmail), które są minimalnymi serwerami poczty e-mail zoptymalizowanymi pod kątem szybkich i bezpiecznych operacji. Możesz też skorzystać z klasycznych serwerów pocztowych i istniejącego konta e-mail, w którym to przypadku Delta Chat będzie pełnić funkcję aplikacji pocztowej. 
 
 <img style="float:right; width:50%; max-width:360%; margin:1em;" src="../assets/home/delta-what-optim.png" />
 
 
 ### Jak mogę znaleźć ludzi, z którymi mogę czatować? 
 
-Dzięki Delta Chat możesz pisać na każdy istniejący adres e-mail - nawet
-jeśli odbiorca nie korzysta z aplikacji Delta Chat. Odbiorca nie musi 
-instalować tej samej aplikacji co Twoja, tak jak w przypadku innych komunikatorów.
+Aby bezpiecznie skonfigurować kontakt z innymi, [zeskanuj kod QR zaproszenia lub udostępnij link zaproszenia](#howtoe2ee). Jest to wymagane w przypadku korzystania z (domyślnego) profilu czatu opartego na poczcie chatmail, ponieważ serwery chatmail odrzucają niezaszyfrowane wiadomości wychodzące.
+
+Jeśli utworzysz profil czatu z klasycznym adresem e-mail, możesz ręcznie utworzyć kontakt, jeśli znasz jego adres e-mail, a następnie napisać do niego wiadomość, nawet jeśli odbiorca nie korzysta z Delta Chat.
 
 
 ### Jakie są zalety Delta Chat w porównaniu z innymi komunikatorami?
 
-- _Niezależny_ od jakiejkolwiek firmy lub usług. _Jesteś_ właścicielem swoich danych.
-- Twoje dane nie są zapisywane na centralnym serwerze, chyba że wszyscy użytkownicy korzystają z tych samych serwerów pocztowych
-- Nie udostępniasz nikomu swojej książki adresowej
-- _Szybki_ dzięki użyciu Push-IMAP
-- _Największa baza użytkowników_ – możesz dotrzeć również do odbiorców _niekorzystających_ z Delta Chat.
-- _Brak spamu_ – domyślnie wyświetlane są, tylko wiadomości znanych użytkowników
-- _Szyfrowanie end-to-end_ za pomocą Autocrypt
-- Wolne oprogramowanie oparte na _Systemie licencjonowania praw autorskich_ i _Standardach_
-- _Elastyczna tożsamość_ ze wbudowaną obsługą [wielu kont](#multiple-accounts)
+Anonimowe profile czatów z szybkimi, bezpiecznymi i interoperacyjnymi [serwerami chatmail](https://delta.chat/chatmail), które oferują natychmiastowe powiadomienia push dla urządzeń iOS i Android.
+
+- Wszechstronna obsługa [wielu profili](#multiple-accounts) i wielu urządzeń na wszystkich platformach.
+
+- Interaktywne [aplikacje internetowe w czatach](https://webxdc.org/apps) do gier i współpracy.
+
+- [Audytowne szyfrowanie end-to-end](#security-audits) zabezpieczające przed atakami sieciowymi i serwerowymi.
+
+- Bezpłatne i otwartoźródłowe oprogramowanie zarówno po stronie aplikacji, jak i serwera. Stworzone w oparciu o [standardy e-mail i internetowe](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md), [aby uniknąć „kolejnego standardowego syndromu (xkcd 927)”](https://xkcd.com/927/).
 
 
 ### Co zrobić, jeśli oczekuję wiadomości od osoby, do której nie pisałem w przeszłości?
@@ -47,12 +48,19 @@ instalować tej samej aplikacji co Twoja, tak jak w przypadku innych komunikator
 
 - Ze względu na wydajność obrazy są domyślnie optymalizowane i wysyłane w mniejszym rozmiarze, ale można je wysłać jako „plik”, aby zachować oryginał.
 
-<h3 id="multiple-accounts">Jak mogę dodawać lub przełączać się między wieloma kontami?</h3>
 
-Tap the profile image in the upper left corner to **switch accounts**.
-You will also find **Add Account** there.
+### Czym są profile? Jak mogę przełączać się między nimi? {#multiple-accounts}
 
-Możesz także dowiedzieć się, [jak dodawać konta do wielu urządzeń](#multiclient).
+Profil to **nazwa, zdjęcie** i dodatkowe informacje umożliwiające szyfrowanie wiadomości. Profil znajduje się wyłącznie na twoim urządzeniu (urządzeniach) i do przesyłania wiadomości wykorzystuje chatmail lub klasyczny serwer e-mail.
+
+Podczas pierwszej instalacji Delta Chat tworzony jest pierwszy profil.
+
+Później możesz dotknąć swojego zdjęcia profilowego w lewym górnym rogu, aby **Dodać profile** lub **Przełączyć profile**.
+
+Możesz chcieć używać oddzielnych profili do działań związanych z polityką, rodziną lub pracą, lub np. dla dedykowanego „profilu spamowego”, za pomocą którego rejestrujesz się na stronach internetowych i platformach, które prędzej czy później generują niechciane wiadomości („spam”).
+
+Możesz także dowiedzieć się, [jak używać tego samego profilu na wielu urządzeniach](#multiclient).
+
 
 ### Kto widzi moje zdjęcie profilowe?
 
@@ -163,6 +171,75 @@ Poza tym, jeśli jeden z partnerów czatu odinstaluje Delta Chat, wiadomości ni
 - Aby ją włączyć, przejdź do „Usuń wiadomości z urządzenia” w ustawieniach w sekcji „Czaty i media”. Możesz ustawić przedział czasowy pomiędzy „po 1 godzinie” a „po 1 roku”; w ten sposób *wszystkie* wiadomości zostaną usunięte z urządzenia, gdy tylko staną się starsze.
 
 
+## Natychmiastowe dostarczanie wiadomości i powiadomienia push {#instant-delivery}
+
+
+### Co to są powiadomienia push? Jak mogę uzyskać natychmiastowe dostarczenie wiadomości?
+
+Powiadomienia push są wysyłane przez „usługi push” Apple i Google do urządzenia użytkownika, dzięki czemu nieaktywna aplikacja Delta Chat może pobierać wiadomości w tle i w razie potrzeby wyświetlać powiadomienia na telefonie użytkownika.
+
+Powiadomienia push działają na wszystkich włączonych serwerach [chatmail](https://delta.chat/chatmail)
+
+- Urządzeń z iOS, poprzez integrację z usługami Apple Push.
+
+- Urządzenia z Androidem, poprzez integrację z usługą Google FCM Push, w tym na urządzeniach korzystających z [microG](https://microg.org) zamiast autorskiego kodu Google w telefonie.
+
+Od maja 2024 r. klasyczne serwery poczty e-mail nie obsługują powiadomień push dla użytkowników Delta Chat.
+
+
+### Czy powiadomienia push są włączone na urządzeniach z iOS? Czy istnieje alternatywa?
+
+Yes, Delta Chat automatically uses Push Notifications for [chatmail](https://delta.chat/chatmail) profiles.
+And no, there is no alternative on Apple's phones to achieve instant message delivery
+because Apple devices do not allow Delta Chat to fetch data in the background.
+Push notifications are automatically activated for iOS users because
+[Delta Chat's privacy-preserving Push Notification system](#privacy-notifications)
+does not expose data to Apple that it doesn't already have.
+
+
+### Czy powiadomienia Push są włączone/potrzebne na urządzeniach z Androidem? {#android-push}
+
+Jeśli dostępna jest „Usługa Push”, Delta Chat włącza Powiadomienia Push w celu zapewnienia natychmiastowego dostarczania wiadomości dla wszystkich użytkowników chatmail. Jeśli zamiast serwerów [chatmail](https://delta.chat/chatmail) korzystasz z klasycznego dostawcy poczty e-mail, powiadomienia push nie są dostępne. 
+
+W ustawieniach „Powiadomień” Delta Chat dla „Natychmiastowej dostawy” możesz zmienić następujące ustawienia wpływające na wszystkie profile czatu:
+
+- Użyj usługi Push: ustawienie domyślne podczas korzystania z profili czatu i jeśli w telefonie dostępna jest usługa Push. Jeśli masz zarówno chatmail, jak i klasyczny profil e-mail, powiadomienie push będzie działać tylko w przypadku wiadomości przychodzących z profili chatmail.
+
+-  Użyj połączenia w tle: Jeśli nie korzystasz z usługi Push, możesz wyłączyć „optymalizację baterii” dla Delta Chat, umożliwiając mu pobieranie wiadomości w tle. Mogą jednak wystąpić opóźnienia od minut do godzin. Niektórzy dostawcy Androida nawet całkowicie ograniczają aplikacje (zobacz [dontkillmyapp.com](https://dontkillmyapp.com)), a Delta Chat może nie wyświetlać wiadomości przychodzących, dopóki ręcznie ponownie nie otworzysz aplikacji.
+  
+Wymuś połączenie w tle: Jest to opcja awaryjna, jeśli poprzednie opcje nie są dostępne lub nie zapewniają „natychmiastowej dostawy”. Włączenie tej opcji powoduje stałe powiadomienie na twoim telefonie, które czasami może zostać „minifikowane” w przypadku najnowszych telefonów z Androidem.
+
+Obie opcje „Połączenia w tle” są energooszczędne i można je bezpiecznie wypróbować, jeśli wiadomości docierają do ciebie z dużym opóźnieniem.
+
+
+### Jak prywatne są powiadomienia push na Delta Chat? {#privacy-notifications}
+
+Obsługa powiadomień push w Delta Chat pozwala uniknąć wycieku prywatnych informacji. Nie powoduje wycieku wiadomości e-mail, adresu IP ani zawartości wiadomości (nawet niezaszyfrowanej) do żadnego systemu zaangażowanego w dostarczanie powiadomień push.
+
+Oto jak aplikacje Delta Chat realizują dostarczanie powiadomień push:
+
+- Aplikacja Delta Chat uzyskuje lokalnie „token urządzenia” i przechowuje go na serwerze [chatmail](https://delta.chat/chatmail).
+
+- Kiedy serwer [chatmail](https://delta.chat/chatmail) odbierze wiadomość e-mail od użytkownika Delta Chat, przekazuje „token urządzenia” do centralnego serwera proxy powiadomień Delta Chat.
+
+- Centralny serwer proxy powiadomień Delta Chat przekazuje „token urządzenia” do odpowiedniej usługi Push (Apple, Google itp.), nie znając nawet adresu IP ani adresu e-mail użytkowników Delta Chat.
+
+- Centralna usługa Push (Apple, Google itp.) budzi aplikację Delta Chat na twoim urządzeniu, aby sprawdzić w tle nowe wiadomości. Nie zna chatmaila ani adresu e-mail urządzenia, na którym się budzi. Centralne usługi push Apple/Google nigdy nie widzą adresu e-mail (nadawcy ani odbiorcy), a także nigdy nie widzą treści wiadomości (również w formie zaszyfrowanej).
+
+Od maja 2024 r. serwery chatmail znają „tokeny urządzenia”, ale planujemy szyfrować te informacje na serwerze proxy powiadomień, tak aby serwer chatmail nigdy nie poznał tokena urządzenia.
+
+Centralny serwer proxy powiadomień Delta Chat [jest mały i w pełni zaimplementowany w Rust](https://github.com/deltachat/notifiers) i zapomina o tokenach urządzeń zaraz po ich przetworzeniu przez Apple/Google/itp, zwykle w ciągu kilku milisekund.
+
+W wyniku tego ogólnego projektu ochrony prywatności nawet przejęcie serwera chatmail lub pełne przejęcie centralnego serwera proxy powiadomień Delta Chat nie spowodowałoby ujawnienia prywatnych informacji, których usługi Push jeszcze nie posiadają.
+
+
+### Dlaczego Delta Chat integruje się ze scentralizowanymi, zastrzeżonymi usługami push Apple/Google?
+
+Delta Chat to darmowy i otwartoźródłowy zdecentralizowany komunikator  z możliwością wyboru serwera, ale chcemy, aby użytkownicy mogli niezawodnie doświadczać „natychmiastowego dostarczania” wiadomości, tak jak w przypadku aplikacji Whatsapp, Signal lub Telegram, bez zadawania z góry pytań, które są bardziej odpowiednie dla doświadczonych użytkowników lub programistów.
+
+Pamiętaj, że Delta Chat posiada [mały i chroniący prywatność system powiadomień push](#privacy-notifications), który zapewnia „natychmiastowe dostarczanie” wiadomości ze wszystkich serwerów chatmail, w tym potencjalnego, który [możesz skonfigurować samodzielnie bez naszej zgody](https://delta.chat/chatmail#selfhosted). Witamy w potędze interoperacyjnego i ogromnego systemu chatmail i e-mail :)
+
+
 ## Szyfrowanie i bezpieczeństwo
 
 ### Jakie standardy są stosowane do szyfrowania end-to-end?
@@ -184,29 +261,17 @@ Pełne szyfrowanie jest gwarantowane, jeśli obok tytułu czatu znajduje się zi
 
 ### Jak mogę uzyskać gwarancję kompleksowego szyfrowania i zielone znaczniki wyboru? {#howtoe2ee}
 
-Spotkaj się ze swoim partnerem na czacie poza Delta Chat, najlepiej osobiście, ale drugi kanał, taki jak czat wideo lub inny komunikator, również będzie w porządku. Wykonaj poniższą procedurę – pokaż/zeskanuj QR – ze swoim partnerem czatu. Jeden z was jest „Zapraszającym”, drugi „Dołączającym”.
+Jeśli masz drugi kanał komunikacji ze swoim partnerem na czacie, np. czat wideo lub inny komunikator, możesz wygenerować link zaproszenia.
 
-**Strona zapraszająca**:
+Jeśli jesteście razem osobiście, możesz pokazać kod QR swojemu rozmówcy.
 
-- Zaproszenie do grupy: dotknij tytułu czatu grupowego, aby wyświetlić listę jej członków i wybierz „Kod QR zaproszenia”. Udostępnij obraz QR drugiej stronie osobiście lub za pośrednictwem drugiego kanału.
+-  W przypadku **zaproszeń grupowych** dotknij tytułu czatu grupy, aby wyświetlić listę jej członków, i wybierz „Kod QR zaproszenia”.
 
-- Bezpośrednie zaproszenie na czat 1:1: Naciśnij ikonę kodu QR <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" /> na ekranie głównym aplikacji Delta Chat. Udostępnij obraz QR drugiej stronie osobiście lub za pośrednictwem drugiego kanału.
+-  Aby uzyskać **bezpośrednie zaproszenia na czat 1:1**, dotknij ikony kodu QR <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" /> na ekranie głównym aplikacji Delta Chat.
 
-**Strona dołączająca**:
+Pozwól swojemu partnerowi czatu zeskanować obraz QR za pomocą aplikacji Delta Chat lub dotknij „Kopiuj” lub „Udostępnij”, aby utworzyć link zaproszenia i udostępnić go swojemu partnerowi czatu.
 
-- Naciśnij ikonę kodu QR <img style="vertical-align:middle; width:1.8em; margin:1px" src="../assets/help/qr-icon.png" /> na ekranie głównym aplikacji Delta Chat.
-
-- Wybierz „ZESKANUJ KOD QR” i zeskanuj kod QR, który zobaczysz u swojego partnera na czacie w drugim kanale.
-
-- Naciśnij „OK”
-
-If the QR code scanning doesn't work in your situation,
-you can also **Share** (or **Copy to Clipboard**) an equivalent invite link
-to the other person through a second channel.
-
-**Zarówno osoba zapraszająca, jak i dołączająca**:
-
-Poczekaj, aż [wiadomości sieciowe Secure-Join zostaną wymienione](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol) między obydwoma urządzeniami.
+Teraz poczekaj, aż między obydwoma urządzeniami [nastąpi wymiana wiadomości sieciowych Secure-Join](https://securejoin.delta.chat/en/latest/new.html#setup-contact-protocol).
 
 - Jeśli oba urządzenia są w trybie online, obie strony ostatecznie zobaczą czat (grupowy lub bezpośredni) z zielonym znacznikiem wyboru <img style="vertical-align:middle; width:1.5em; margin:1px" src="../assets/help/green-checkmark.png" alt="green checkmark"/> obok tytułu.
 
@@ -384,16 +449,13 @@ W przypadku innych programów można znaleźć rozwiązanie online.
 
 ### Czy Delta Chat był niezależnie kontrolowany pod kątem luk w zabezpieczeniach? {#security-audits}
 
-The Delta Chat project underwent four independent security audits and one
-independent security analysis, from most recent to older: 
+Projekt Delta Chat przeszedł cztery niezależne audyty bezpieczeństwa i jedną niezależną analizę bezpieczeństwa, od najnowszego do najstarszego:
 
-- 2024 March, we received a deep security analysis from the Applied Cryptography
-  research group at ETH Zuerich and addressed all raised issues. 
-  See our blog post about [Hardening Guaranteed End-to-End encryption](https://delta.chat/en/2024-03-25-crypto-analysis-securejoin) for more detailed information. 
+W marcu 2024 r. otrzymaliśmy dogłębną analizę bezpieczeństwa od grupy badawczej ds. kryptografii stosowanej w ETH Zuerich i zajęliśmy się wszystkimi poruszonymi kwestiami. Bardziej szczegółowe informacje można znaleźć w naszym poście na blogu na temat [szyfrowania typu „end-to-end” z gwarancją hartowania](https://delta.chat/en/2024-03-25-crypto-analysis-securejoin).
 
-- Początkiem 2023 r. naprawiliśmy problemy z bezpieczeństwem i prywatnością w funkcji „aplikacje internetowe udostępniane na czacie”, związane z awariami piaskownicy, szczególnie w przypadku Chromium. Następnie przeprowadziliśmy niezależny audyt bezpieczeństwa od Cure53 i wszystkie wykryte problemy zostały naprawione w aplikacji z serii 1.36 wydanej w kwietniu 2023 r. [Pełną historię bezpieczeństwa end-to-end w sieci można znaleźć tutaj](https://delta.chat/en/2023-05-22-webxdc-security).
+- W kwietniu 2023 r. naprawiliśmy problemy z bezpieczeństwem i prywatnością w funkcji „aplikacje internetowe udostępniane na czacie”, związane z awariami piaskownicy, szczególnie w przypadku Chromium. Następnie przeprowadziliśmy niezależny audyt bezpieczeństwa od Cure53 i wszystkie wykryte problemy zostały naprawione w aplikacji z serii 1.36 wydanej w kwietniu 2023 r. [Pełną historię bezpieczeństwa end-to-end w sieci można znaleźć tutaj](https://delta.chat/en/2023-05-22-webxdc-security).
 
-- Początkiem 2023 r. firma [Cure53](https://cure53.de) przeanalizowała zarówno szyfrowanie transportu połączeń sieciowych Delta Chat, jak i powtarzalną konfigurację serwera pocztowego zgodnie z [zaleceniami na tej stronie](serverguide). Możesz przeczytać więcej o audycie [na naszym blogu](https://delta.chat/en/2023-03-27-third-independent-security-audit) lub przeczytać pełny raport [tutaj](../assets/blog/MER-01-report.pdf).
+- W marcu 2023 r. firma [Cure53](https://cure53.de) przeanalizowała zarówno szyfrowanie transportu połączeń sieciowych Delta Chat, jak i powtarzalną konfigurację serwera pocztowego zgodnie z [zaleceniami na tej stronie](serverguide). Możesz przeczytać więcej o audycie [na naszym blogu](https://delta.chat/en/2023-03-27-third-independent-security-audit) lub przeczytać pełny raport [tutaj](../assets/blog/MER-01-report.pdf).
 
 - W 2020 r. firma [Include Security](https://includesecurity.com) przeanalizowała biblioteki Rust [core](https://github.com/deltachat/deltachat-core-rust/), [IMAP](https://github.com/async-email/async-imap), [SMTP](https://github.com/async-email/async-smtp) i [TLS](https://github.com/async-email/async-native-tls) Delta Chat. Nie znalazła żadnych problemów krytycznych ani poważnych. W raporcie zwrócono uwagę na kilka słabych punktów o średniej wadze – same w sobie nie stanowią zagrożenia dla użytkowników Delta Chat, ponieważ zależą od środowiska, w którym używany jest Delta Chat. Ze względu na użyteczność i kompatybilność nie możemy złagodzić wszystkich z nich i zdecydowaliśmy się przedstawić zalecenia dotyczące bezpieczeństwa zagrożonym użytkownikom. Pełny raport można przeczytać [tutaj](../assets/blog/2020-second-security-review.pdf).
 
@@ -405,7 +467,7 @@ independent security analysis, from most recent to older:
 
 ### Czy mogę korzystać z Delta Chat na wielu urządzeniach w tym samym czasie?
 
-Tak. Delta Chat 1.36 comes with a new, experimental function for using the same account on different devices:
+Tak. Delta Chat 1.36 comes with a new, experimental function for using the same profile on different devices:
 
 - Upewnij się, że oba urządzenia są połączone z tego samego Wi-Fi lub sieci
 
@@ -511,10 +573,10 @@ Jesteśmy bardzo wdzięczni za opinie na temat tych funkcji — chcesz podzieli�
 
 - Możesz włączyć przesyłanie strumieniowe lokalizacji w sekcji „Funkcje eksperymentalne” w ustawieniach zaawansowanych.
 - Teraz, jeśli chcesz udostępnić swoją lokalizację na czacie, przejdź do „załącz” i wybierz „Lokalizacja”. Możesz teraz ustawić przedział czasowy, w którym Twoja lokalizacja będzie przesyłana strumieniowo do rozmówców, od 5 minut do 6 godzin.
-- Gdy Twoja lokalizacja się zmienia, inni uczestnicy czatu mogą ją zobaczyć na mapie w czacie.
+- Gdy twoja lokalizacja się zmienia, inni uczestnicy czatu mogą ją zobaczyć na mapie w czacie.
 - Aby zobaczyć mapę i wyświetlić lokalizacje innych osób, musisz włączyć tę funkcję w ustawieniach zaawansowanych.
-- Ta funkcja nie będzie udostępniać Twojej lokalizacji nikomu poza partnerami czatu. *Ale:* aby pokazać mapę, musimy pobrać część mapy z serwisu mapbox.com, więc jeśli *wyświetlasz* mapę, serwis mapbox.com jest proszony o mapę określonego obszaru. Jeśli jest to dla Ciebie zagrożeniem dla prywatności, ta funkcja może nie być dla Ciebie. Pracujemy nad znalezieniem zdecentralizowanej alternatywy dla Mapbox.
-- Na komputerze system operacyjny zwykle nie może określić Twojej lokalizacji. Zamiast tego możesz kliknąć prawym przyciskiem myszy na mapie i opisać lokalizację, która jest wysyłana do czatu jako wiadomość, ale także pojawia się na mapie.
+- Ta funkcja nie będzie udostępniać twojej lokalizacji nikomu poza partnerami czatu. Mapy są pobierane z [OpenStreetMap](https://openstreetmap.org).
+- Na komputerze system operacyjny zwykle nie może określić twojej lokalizacji. Zamiast tego możesz kliknąć prawym przyciskiem myszy na mapie i opisać lokalizację, która jest wysyłana do czatu jako wiadomość, ale także pojawia się na mapie.
 
 
 ### Co właściwie chroni eksperymentalne szyfrowanie bazy danych?
@@ -539,10 +601,7 @@ W tym przypadku Delta Chat nie musi obserwować skrzynki odbiorczej, a wystarczy
 
 ### Jak mogę zmienić moje konto na inny adres e-mail?
 
-1. Change your address in “Settings → Advanced → Password and Account” and
-   enter the password of your new account (and if necessary, server settings).
-   You will get an information notice about the fact that you are moving to a new address. 
-   An additional notice will also show up in your "Device messages" chat. 
+1. Zmień swój adres w „Ustawienia → Zaawansowane → Hasło i konto” i wprowadź hasło do swojego nowego konta (i jeśli to konieczne, ustawienia serwera). Otrzymasz informację o przeniesieniu na nowy adres. Dodatkowe powiadomienie pojawi się również na czacie „Komunikaty urządzenia”.
 
 2. Jeśli to możliwe, pozwól, aby twój stary dostawca poczty e-mail przekazywał wszystkie wiadomości na twój nowy adres.
 
@@ -581,7 +640,7 @@ Oto, co robi Delta Chat z tymi uprawnieniami:
  - zapobieganie uśpieniu telefonu: dzięki czemu możesz łatwiej skopiować kod zabezpieczający podczas komunikatu konfiguracyjnego Autocrypt
  - pełny dostęp do sieci: aby połączyć się z dostawcą poczty e-mail
  - wyświetlanie połączenia Wi-Fi: aby połączyć się z dostawcą poczty e-mail
- - prośba o zignorowanie optymalizacji baterii: dla użytkowników, którzy chcą otrzymywać wiadomości przez cały czas 
+ - prośba o zignorowanie optymalizacji baterii: w celu osiągnięcia „natychmiastowego dostarczania wiadomości”
 
 
 ### Czy Delta Chat działa z _moim_ dostawcą poczty e-mail?
@@ -606,20 +665,11 @@ Ponieważ Delta Chat jest Open Source, możesz sprawdzić [Kod źródłowy](http
 jeśli chcesz sprawdzić, czy Twoje poświadczenia są przetwarzane w bezpieczny sposób. Cieszymy się z opinii, które sprawiają, że aplikacja jest bezpieczniejsza dla wszystkich naszych użytkowników. 
 
 
-### Jeśli Delta Chat korzysta z poczty e-mail, czy naprawdę jest to komunikator internetowy?
-
-- Wysyłanie i odbieranie wiadomości zwykle zajmuje kilka sekund. Czasami zdarzają się przypadki, w których trwa to dłużej, ale prawdopodobnie jest to również prawdą w przypadku każdego innego komunikatora.
-- Natychmiastowe czatowanie działa szybko, jeśli obie strony aktywnie korzystają z aplikacji. Czasami działa wolniej, jeśli aplikacja działa w tle.
-- Odbieranie wiadomości może zająć kilka minut, ponieważ zarówno Android, jak i iOS często zatrzymują Delta Chat podczas działaniem w tle i budzą go tylko od czasu do czasu. To sztuczne opóźnienie jest zwykle gorsze na iOS niż na Androidzie.
-- Jednak „ubijanie” aplikacji działających w tle na Androidzie i iOS stanowi problem dla wielu legalnych aplikacji. Aby uzyskać więcej informacji, zobacz [dontkillmyapp.com](https://dontkillmyapp.com/).
-
-
 ### Jakie wiadomości pojawiają się w Delta Chat?
 
 Domyślnie Delta Chat pokazuje wszystkie e-maile.
 
-At "Settings → Advanced → Show Classic E-Mails",
-you can change this. You have these options:
+Możesz to zmienić w „Ustawienia → Zaawansowane → Pokaż klasyczne e-maile”. Masz następujące opcje:
 
 - „Nie, tylko czaty”: Wyświetlane są tylko wiadomości wysłane przez innych użytkowników Delta Chat i odpowiedzi na Twoje wiadomości Delta Chat. Ma to największy sens, jeśli używasz tego samego konta e-mail również do wysyłania zwykłych wiadomości e-mail. To jest ustawienie domyślne.
 - „Wszystkie”: Delta Chat pokazuje wszystkie e-maile, które są wysyłane na Twój adres e-mail. Ma to sens, jeśli chcesz używać Delta Chat do wszystkich swoich e-maili, więc żadna wiadomość nie zostanie utracona. To jest ustawienie domyślne.
@@ -628,7 +678,7 @@ you can change this. You have these options:
 
 ### Czy Delta Chat obsługuje wiadomości e-mail w formacie HTML?
 
-- Tak, przychodzące wiadomości HTML otrzymują przycisk „Pokaż całą wiadomość”. Wychodzące wiadomości zawsze zawierają zwykły tekst.
+Tak, przychodzące wiadomości HTML otrzymują przycisk „Pokaż całą wiadomość”. Wychodzące wiadomości zawsze zawierają zwykły tekst.
 
 
 ### Czy w Delta Chat mogę ustawić temat wiadomości e-mail?
@@ -644,7 +694,7 @@ Wysłanie kopii wiadomości do siebie zapewnia otrzymywanie własnych wiadomośc
 
 Kopia jest wysyłana do skrzynki odbiorczej, a następnie przenoszona do folderu DeltaChat; nie jest umieszczana w folderze „Wysłane”. Delta Chat nigdy nie przesyła niczego do folderu Wysłane, ponieważ oznaczałoby to dwukrotne przesłanie wiadomości (raz przez SMTP i raz przez IMAP do folderu Wysłane).
 
-The default setting for "Send Copy to Self" is "on".
+Domyślne ustawienie „Wyślij kopię do siebie” jest „włączone”.
 
 
 ### Po co mam wybrać opcję oglądania folderu „Wysłane”?

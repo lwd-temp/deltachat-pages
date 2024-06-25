@@ -1,35 +1,36 @@
 ---
-title: Der E-Mail-Messenger
+title: Delta Chat, Dezentralisierter, sicherer Messenger 
 lang: de
 ---
 
-# Delta Chat ist ein Messenger, der über E-Mail funktioniert
+# Delta Chat is ein dezentralisierter und sicherer Messenger {#homepage-heading}
 
-💬 Sende Nachrichten an jeden, der eine E-Mail-Adresse hat, [selbst wenn sie nicht Delta Chat nutzen](https://www.youtube-nocookie.com/embed/8LbrGXKZN70).
+💬 Zuverlässiges Instant-Messaging mit Unterstützung für mehrere Profile und mehrere Geräte
 
-🥳 Entdecke interaktives Chatten mit [webxdc Apps](https://webxdc.org).
+⚡️ Melden Sie sich bei [sicheren, schnellen Chatmail-Servern](chatmail) an oder verwenden Sie [klassische E-Mail-Server](https://providers.delta.chat/)
 
-🔒 Ende-zu-Ende-Verschlüsselung mit [Autocrypt](https://autocrypt.org) und [SecureJoin](https://securejoin.delta.chat/en/latest/new.html) Protokollen und [mehreren Sicherheitsüberprüfungen](https://delta.chat/en/2023-03-27-third-independent-security-audit). 
+🥳 Interaktive [Web Apps in Chats](https://webxdc.org/) zum Spielen und für die Zusammenarbeit
 
-# Verfügbar für Mobil- und Desktopgeräte
+🔒 [Geprüfte Ende-zu-Ende-Verschlüsselung](https://delta.chat/en/2024-03-25-crypto-analysis-securejoin), sicher gegen Netzwerk- und Serverangriffe
 
+👉 [F](https://en.wikipedia.org/wiki/Free_software)[OSS](https://en.wikipedia.org/wiki/Open-source_software)-Software, basierend auf [Internet Standards](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md), [xkcd927](https://xkcd.com/927/) vermeidend :)
 
 <div>
-<a href="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-chat-list-light.png">
+<a href="../assets/home/screenshots/android1.png">
 <picture>
-<source srcset="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-chat-list-light-thumbnail.webp" type="image/webp" />
-<source srcset="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-chat-list-light-thumbnail.png" type="image/png" />
-<img src="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-chat-list-light-thumbnail.png" width="120" height="213" style="float: left; margin: 10px;display: block;box-shadow: 5px 5px 2px #777;" alt="A screenshot of Delta Chat on Android showing chat list" />
+<source srcset="../assets/home/screenshots/android1-thumbnail.webp" type="image/webp" />
+<source srcset="../assets/home/screenshots/android1-thumbnail.png" type="image/png" />
+<img src="../assets/home/screenshots/android1-thumbnail.png" width="136" height="242" style="float: left; display: block;" alt="A screenshot of Delta Chat on Android showing chat list" />
 </picture>
 </a>
 </div>
 
 <div>
-<a href="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-group-light.png">
+<a href="../assets/home/screenshots/android2.png">
 <picture>
-<source srcset="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-group-light-thumbnail.webp" type="image/webp" />
-<source srcset="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-group-light-thumbnail.png" type="image/png" />
-<img src="../assets/blog/screenshots/2019-12-17-delta-chat-google-play-release-group-light-thumbnail.png" width="120" height="213" style="float: left; margin: 10px;display: block;box-shadow: 5px 5px 2px #777;" alt="A screenshot of Delta Chat on Android showing a chat" />
+<source srcset="../assets/home/screenshots/android2-thumbnail.webp" type="image/webp" />
+<source srcset="../assets/home/screenshots/android2-thumbnail.png" type="image/png" />
+<img src="../assets/home/screenshots/android2-thumbnail.png" width="136" height="242" style="float: left; display: block;" alt="A screenshot of Delta Chat on Android showing a chat" />
 </picture>
 </a>
 </div>
@@ -39,24 +40,23 @@ lang: de
 <picture>
 <source srcset="../assets/home/screenshots/desktop-thumbnail.webp" type="image/webp" />
 <source srcset="../assets/home/screenshots/desktop-thumbnail.png" type="image/png" />
-<img src="../assets/home/screenshots/desktop-thumbnail.png" width="280" height="222" style="float:left; margin: 10px" alt="A screenshot of Delta Chat on desktop" />
+<img src="../assets/home/screenshots/desktop-thumbnail.png" width="305" height="242" style="float:left;" alt="A screenshot of Delta Chat on desktop" />
 </picture>
 </a>
 </div>
 
 <div>
-<a href="../assets/blog/screenshots/2020-01-09-delta-chat-iOS-weekend-group-chat.png">
+<a href="../assets/home/screenshots/ios.png">
 <picture>
-<source srcset="../assets/blog/screenshots/2020-01-09-delta-chat-iOS-weekend-group-chat-thumbnail.webp" type="image/webp" />
-<source srcset="../assets/blog/screenshots/2020-01-09-delta-chat-iOS-weekend-group-chat-thumbnail.png" type="image/png" />
-<img src="../assets/blog/screenshots/2020-01-09-delta-chat-iOS-weekend-group-chat-thumbnail.png" width="110" height="219" style="margin: 10px" alt="A screenshot of Delta Chat on iOS" />
+<source srcset="../assets/home/screenshots/ios-thumbnail.webp" type="image/webp" />
+<source srcset="../assets/home/screenshots/ios-thumbnail.png" type="image/png" />
+<img src="../assets/home/screenshots/ios.png" width="124" height="242" alt="A screenshot of Delta Chat on iOS" />
 </picture>
 </a>
 </div>
 
 [Herunterladen](https://get.delta.chat){: .cta-button}
 
-[Quelloffene](https://de.wikipedia.org/wiki/Open_Source)
-und [freie Software](https://de.wikipedia.org/wiki/Freie_Software), basierend auf [Internet-Standards](https://github.com/deltachat/deltachat-core-rust/blob/master/standards.md). 
+Verfügbar auf Mobil- und Desktopgeräten.
 
-Sieh dir [Erfahrungsberichte und Meinungen](user-voices) an.
+
